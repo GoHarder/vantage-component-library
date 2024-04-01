@@ -1,0 +1,280 @@
+// H-W Purple
+// #000000
+// #0f0564
+// #272377
+// #3e3c8f
+// #5655a8
+// #6f6ec3
+// #8988df
+// #a3a2fc
+// #c2c1ff
+// #c2c1ff
+// #f2efff
+// #fffbff
+// #ffffff
+
+// Blue Gray
+// #000000
+// #061c36
+// #1e314c
+// #354863
+// #4c5f7c
+// #657896
+// #7f92b1
+// #99accd
+// #b4c8e9
+// #d4e3ff
+// #ebf1ff
+// #fdfcff
+// #ffffff
+
+// Polynesian blue
+// #000000
+// #001b3f
+// #002f65
+// #02458e
+// #02458e
+// #4877c2
+// #6491de
+// #7fabfb
+// #abc7ff
+// #d7e3ff
+// #ecf0ff
+// #fdfbff
+// #ffffff
+
+// Vantage Yellow
+// #000000
+// #241a00
+// #3e2e00
+// #594400
+// #755b00
+// #937300
+// #b28c00
+// #d3a500
+// #f2c022
+// #ffdf91
+// #ffefcf
+// #fffbff
+// #ffffff
+
+// Tacton teal #0097a8
+// #000000
+// #001f24
+// #00363d
+// #004f58
+// #006875
+// #008392
+// #50d8ec
+// #23bcd0
+// #50d8ec
+// #9af0ff
+// #d1f8ff
+// #f6feff
+// #ffffff
+
+@function palette-light($exclude-hardcoded-values: false) {
+  @return (
+    //
+    'black': if($exclude-hardcoded-values, null, #000000),
+    'white': if($exclude-hardcoded-values, null, #ffffff),
+    // Primary
+    'primary0': if($exclude-hardcoded-values, null, #000000),
+    'primary10': if($exclude-hardcoded-values, null, #061c36),
+    'primary20': if($exclude-hardcoded-values, null, #1e314c),
+    'primary30': if($exclude-hardcoded-values, null, #354863),
+    'primary40': if($exclude-hardcoded-values, null, #4c5f7c),
+    'primary50': if($exclude-hardcoded-values, null, #657896),
+    'primary60': if($exclude-hardcoded-values, null, #7f92b1),
+    'primary70': if($exclude-hardcoded-values, null, #99accd),
+    'primary80': if($exclude-hardcoded-values, null, #b4c8e9),
+    'primary90': if($exclude-hardcoded-values, null, #d4e3ff),
+    'primary95': if($exclude-hardcoded-values, null, #ebf1ff),
+    'primary99': if($exclude-hardcoded-values, null, #fdfcff),
+    'primary100': if($exclude-hardcoded-values, null, #ffffff),
+    // Secondary
+    'secondary0': if($exclude-hardcoded-values, null, #000000),
+    'secondary10': if($exclude-hardcoded-values, null, #241a00),
+    'secondary20': if($exclude-hardcoded-values, null, #3e2e00),
+    'secondary30': if($exclude-hardcoded-values, null, #594400),
+    'secondary40': if($exclude-hardcoded-values, null, #755b00),
+    'secondary50': if($exclude-hardcoded-values, null, #937300),
+    'secondary60': if($exclude-hardcoded-values, null, #b28c00),
+    'secondary70': if($exclude-hardcoded-values, null, #d3a500),
+    'secondary80': if($exclude-hardcoded-values, null, #f2c022),
+    'secondary90': if($exclude-hardcoded-values, null, #ffdf91),
+    'secondary95': if($exclude-hardcoded-values, null, #ffefcf),
+    'secondary99': if($exclude-hardcoded-values, null, #fffbff),
+    'secondary100': if($exclude-hardcoded-values, null, #ffffff),
+    // Tertiary
+    'tertiary0': if($exclude-hardcoded-values, null, #000000),
+    'tertiary10': if($exclude-hardcoded-values, null, #001f24),
+    'tertiary20': if($exclude-hardcoded-values, null, #00363d),
+    'tertiary30': if($exclude-hardcoded-values, null, #004f58),
+    'tertiary40': if($exclude-hardcoded-values, null, #006875),
+    'tertiary50': if($exclude-hardcoded-values, null, #008392),
+    'tertiary60': if($exclude-hardcoded-values, null, #50d8ec),
+    'tertiary70': if($exclude-hardcoded-values, null, #23bcd0),
+    'tertiary80': if($exclude-hardcoded-values, null, #50d8ec),
+    'tertiary90': if($exclude-hardcoded-values, null, #9af0ff),
+    'tertiary95': if($exclude-hardcoded-values, null, #d1f8ff),
+    'tertiary99': if($exclude-hardcoded-values, null, #f6feff),
+    'tertiary100': if($exclude-hardcoded-values, null, #ffffff),
+    // Error
+    'error0': if($exclude-hardcoded-values, null, #000000),
+    'error10': if($exclude-hardcoded-values, null, #410000),
+    'error20': if($exclude-hardcoded-values, null, #690000),
+    'error30': if($exclude-hardcoded-values, null, #930000),
+    'error40': if($exclude-hardcoded-values, null, #ba1a1a),
+    'error50': if($exclude-hardcoded-values, null, #de3131),
+    'error60': if($exclude-hardcoded-values, null, #ff4a4a),
+    'error70': if($exclude-hardcoded-values, null, #ff7d7d),
+    'error80': if($exclude-hardcoded-values, null, #ffabab),
+    'error90': if($exclude-hardcoded-values, null, #ffd6d6),
+    'error95': if($exclude-hardcoded-values, null, #ffebeb),
+    'error99': if($exclude-hardcoded-values, null, #fffafa),
+    'error100': if($exclude-hardcoded-values, null, #ffffff),
+    // Neutral
+    'neutral0': if($exclude-hardcoded-values, null, #000000),
+    'neutral4': if($exclude-hardcoded-values, null, #0d0d0d),
+    'neutral6': if($exclude-hardcoded-values, null, #0f0f0f),
+    'neutral10': if($exclude-hardcoded-values, null, #1a1a1a),
+    'neutral12': if($exclude-hardcoded-values, null, #1f1f1f),
+    'neutral17': if($exclude-hardcoded-values, null, #292929),
+    'neutral20': if($exclude-hardcoded-values, null, #2e2e2e),
+    'neutral22': if($exclude-hardcoded-values, null, #333333),
+    'neutral24': if($exclude-hardcoded-values, null, #383838),
+    'neutral30': if($exclude-hardcoded-values, null, #454545),
+    'neutral40': if($exclude-hardcoded-values, null, #5c5c5c),
+    'neutral50': if($exclude-hardcoded-values, null, #757575),
+    'neutral60': if($exclude-hardcoded-values, null, #8f8f8f),
+    'neutral70': if($exclude-hardcoded-values, null, #a8a8a8),
+    'neutral80': if($exclude-hardcoded-values, null, #c4c4c4),
+    'neutral87': if($exclude-hardcoded-values, null, #d9d9d9),
+    'neutral90': if($exclude-hardcoded-values, null, #e0e0e0),
+    'neutral92': if($exclude-hardcoded-values, null, #e6e6e6),
+    'neutral94': if($exclude-hardcoded-values, null, #ededed),
+    'neutral95': if($exclude-hardcoded-values, null, #f0f0f0),
+    'neutral96': if($exclude-hardcoded-values, null, #f2f2f2),
+    'neutral98': if($exclude-hardcoded-values, null, #f7f7f7),
+    'neutral99': if($exclude-hardcoded-values, null, #fcfcfc),
+    'neutral100': if($exclude-hardcoded-values, null, #ffffff),
+    // Neutral Variant
+    'neutral-variant0': if($exclude-hardcoded-values, null, #000000),
+    'neutral-variant10': if($exclude-hardcoded-values, null, #171717),
+    'neutral-variant20': if($exclude-hardcoded-values, null, #2b2b2b),
+    'neutral-variant30': if($exclude-hardcoded-values, null, #424242),
+    'neutral-variant40': if($exclude-hardcoded-values, null, #595959),
+    'neutral-variant50': if($exclude-hardcoded-values, null, #737373),
+    'neutral-variant60': if($exclude-hardcoded-values, null, #8c8c8c),
+    'neutral-variant70': if($exclude-hardcoded-values, null, #a6a6a6),
+    'neutral-variant80': if($exclude-hardcoded-values, null, #c2c2c2),
+    'neutral-variant90': if($exclude-hardcoded-values, null, #dedede),
+    'neutral-variant95': if($exclude-hardcoded-values, null, #ebebeb),
+    'neutral-variant99': if($exclude-hardcoded-values, null, #fcfcfc),
+    'neutral-variant100': if($exclude-hardcoded-values, null, #ffffff)
+  );
+}
+
+@function palette-dark($exclude-hardcoded-values: false) {
+  @return (
+    //
+    'black': if($exclude-hardcoded-values, null, #000000),
+    'white': if($exclude-hardcoded-values, null, #ffffff),
+    // Primary
+    'primary0': if($exclude-hardcoded-values, null, #000000),
+    'primary10': if($exclude-hardcoded-values, null, #241a00),
+    'primary20': if($exclude-hardcoded-values, null, #3e2e00),
+    'primary30': if($exclude-hardcoded-values, null, #594400),
+    'primary40': if($exclude-hardcoded-values, null, #755b00),
+    'primary50': if($exclude-hardcoded-values, null, #937300),
+    'primary60': if($exclude-hardcoded-values, null, #b28c00),
+    'primary70': if($exclude-hardcoded-values, null, #d3a500),
+    'primary80': if($exclude-hardcoded-values, null, #f2c022),
+    'primary90': if($exclude-hardcoded-values, null, #ffdf91),
+    'primary95': if($exclude-hardcoded-values, null, #ffefcf),
+    'primary99': if($exclude-hardcoded-values, null, #fffbff),
+    'primary100': if($exclude-hardcoded-values, null, #ffffff),
+    // Secondary
+    'secondary0': if($exclude-hardcoded-values, null, #000000),
+    'secondary10': if($exclude-hardcoded-values, null, #061c36),
+    'secondary20': if($exclude-hardcoded-values, null, #1e314c),
+    'secondary30': if($exclude-hardcoded-values, null, #354863),
+    'secondary40': if($exclude-hardcoded-values, null, #4c5f7c),
+    'secondary50': if($exclude-hardcoded-values, null, #657896),
+    'secondary60': if($exclude-hardcoded-values, null, #7f92b1),
+    'secondary70': if($exclude-hardcoded-values, null, #99accd),
+    'secondary80': if($exclude-hardcoded-values, null, #b4c8e9),
+    'secondary90': if($exclude-hardcoded-values, null, #d4e3ff),
+    'secondary95': if($exclude-hardcoded-values, null, #ebf1ff),
+    'secondary99': if($exclude-hardcoded-values, null, #fdfcff),
+    'secondary100': if($exclude-hardcoded-values, null, #ffffff),
+    // Tertiary
+    'tertiary0': if($exclude-hardcoded-values, null, #000000),
+    'tertiary10': if($exclude-hardcoded-values, null, #001b3f),
+    'tertiary20': if($exclude-hardcoded-values, null, #002f65),
+    'tertiary30': if($exclude-hardcoded-values, null, #02458e),
+    'tertiary40': if($exclude-hardcoded-values, null, #02458e),
+    'tertiary50': if($exclude-hardcoded-values, null, #4877c2),
+    'tertiary60': if($exclude-hardcoded-values, null, #6491de),
+    'tertiary70': if($exclude-hardcoded-values, null, #7fabfb),
+    'tertiary80': if($exclude-hardcoded-values, null, #abc7ff),
+    'tertiary90': if($exclude-hardcoded-values, null, #d7e3ff),
+    'tertiary95': if($exclude-hardcoded-values, null, #ecf0ff),
+    'tertiary99': if($exclude-hardcoded-values, null, #fdfbff),
+    'tertiary100': if($exclude-hardcoded-values, null, #ffffff),
+    // Error
+    'error0': if($exclude-hardcoded-values, null, #000000),
+    'error10': if($exclude-hardcoded-values, null, #410000),
+    'error20': if($exclude-hardcoded-values, null, #690000),
+    'error30': if($exclude-hardcoded-values, null, #930000),
+    'error40': if($exclude-hardcoded-values, null, #ba1a1a),
+    'error50': if($exclude-hardcoded-values, null, #de3131),
+    'error60': if($exclude-hardcoded-values, null, #ff4a4a),
+    'error70': if($exclude-hardcoded-values, null, #ff7d7d),
+    'error80': if($exclude-hardcoded-values, null, #ffabab),
+    'error90': if($exclude-hardcoded-values, null, #ffd6d6),
+    'error95': if($exclude-hardcoded-values, null, #ffebeb),
+    'error99': if($exclude-hardcoded-values, null, #fffafa),
+    'error100': if($exclude-hardcoded-values, null, #ffffff),
+    // Neutral
+    'neutral0': if($exclude-hardcoded-values, null, #000000),
+    'neutral4': if($exclude-hardcoded-values, null, #0d0d0d),
+    'neutral6': if($exclude-hardcoded-values, null, #0f0f0f),
+    'neutral10': if($exclude-hardcoded-values, null, #1a1a1a),
+    'neutral12': if($exclude-hardcoded-values, null, #1f1f1f),
+    'neutral17': if($exclude-hardcoded-values, null, #292929),
+    'neutral20': if($exclude-hardcoded-values, null, #2e2e2e),
+    'neutral22': if($exclude-hardcoded-values, null, #333333),
+    'neutral24': if($exclude-hardcoded-values, null, #383838),
+    'neutral30': if($exclude-hardcoded-values, null, #454545),
+    'neutral40': if($exclude-hardcoded-values, null, #5c5c5c),
+    'neutral50': if($exclude-hardcoded-values, null, #757575),
+    'neutral60': if($exclude-hardcoded-values, null, #8f8f8f),
+    'neutral70': if($exclude-hardcoded-values, null, #a8a8a8),
+    'neutral80': if($exclude-hardcoded-values, null, #c4c4c4),
+    'neutral87': if($exclude-hardcoded-values, null, #d9d9d9),
+    'neutral90': if($exclude-hardcoded-values, null, #e0e0e0),
+    'neutral92': if($exclude-hardcoded-values, null, #e6e6e6),
+    'neutral94': if($exclude-hardcoded-values, null, #ededed),
+    'neutral95': if($exclude-hardcoded-values, null, #f0f0f0),
+    'neutral96': if($exclude-hardcoded-values, null, #f2f2f2),
+    'neutral98': if($exclude-hardcoded-values, null, #f7f7f7),
+    'neutral99': if($exclude-hardcoded-values, null, #fcfcfc),
+    'neutral100': if($exclude-hardcoded-values, null, #ffffff),
+    // Neutral Variant
+    'neutral-variant0': if($exclude-hardcoded-values, null, #000000),
+    'neutral-variant10': if($exclude-hardcoded-values, null, #171717),
+    'neutral-variant20': if($exclude-hardcoded-values, null, #2b2b2b),
+    'neutral-variant30': if($exclude-hardcoded-values, null, #424242),
+    'neutral-variant40': if($exclude-hardcoded-values, null, #595959),
+    'neutral-variant50': if($exclude-hardcoded-values, null, #737373),
+    'neutral-variant60': if($exclude-hardcoded-values, null, #8c8c8c),
+    'neutral-variant70': if($exclude-hardcoded-values, null, #a6a6a6),
+    'neutral-variant80': if($exclude-hardcoded-values, null, #c2c2c2),
+    'neutral-variant90': if($exclude-hardcoded-values, null, #dedede),
+    'neutral-variant95': if($exclude-hardcoded-values, null, #ebebeb),
+    'neutral-variant99': if($exclude-hardcoded-values, null, #fcfcfc),
+    'neutral-variant100': if($exclude-hardcoded-values, null, #ffffff)
+  );
+}

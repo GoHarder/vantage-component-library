@@ -1,0 +1,34 @@
+@use './tokens/sys-color';
+@use './tokens/sys-typescale';
+
+$typescale: sys-typescale.values();
+
+:root {
+  --md-ref-typeface-brand: 'Familjen Grotesk', sans-serif;
+  --md-ref-typeface-plain: system-ui;
+  --md-icon-font: 'Material Symbols Sharp';
+
+  @each $key, $value in $typescale {
+    --md-sys-typescale-#{$key}: #{$value};
+  }
+}
+
+$values-light: sys-color.values-light();
+
+@media (prefers-color-scheme: light) {
+  :root {
+    @each $key, $color in $values-light {
+      --md-sys-color-#{$key}: #{$color};
+    }
+  }
+}
+
+$values-dark: sys-color.values-dark();
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @each $key, $color in $values-dark {
+      --md-sys-color-#{$key}: #{$color};
+    }
+  }
+}

@@ -1,0 +1,9 @@
+.vscode           export-ignore
+display           export-ignore
+node_modules      export-ignore
+src               export-ignore
+index.html        export-ignore
+pnpm-lock.yaml    export-ignore
+rollup.config.js  export-ignore
+svelte.config.js  export-ignore
+tsconfig.json     export-ignore
