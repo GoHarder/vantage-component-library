@@ -1,9 +1,9 @@
 <script>
+  // Components
   import Section from './section.svelte';
   import { Button } from '../../../../dist/button/index.js';
   import { Icon } from '../../../../dist/icon/index.js';
 
-  // Components
   // Stores
   // Properties
   export let expand = false;
