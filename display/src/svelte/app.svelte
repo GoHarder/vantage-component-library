@@ -1,12 +1,11 @@
 <script>
   // Components
-  import { CircularProgress, LinearProgress } from '../../../dist/progress';
+  import ButtonCard from './sections/button-section.svelte';
 
   // Stores
   // Properties
   // Methods
   // Constants
-
   const stages = [
     { visible: true, buffer: 0, value: 0, indeterminate: true },
     { visible: true, buffer: 0.25, value: 0, indeterminate: false },
@@ -27,6 +26,10 @@
     }
   };
 
+  setInterval(() => {
+    disabled = !disabled;
+  }, 2000);
+
   // Variables
   let state = {
     visible: false,
@@ -34,6 +37,8 @@
     value: 0,
     indeterminate: false,
   };
+
+  let disabled = false;
 
   animate();
 
@@ -44,7 +49,6 @@
   // Lifecycle
 </script>
 
-<LinearProgress {...state} />
-<CircularProgress {...state} />
-<CircularProgress {...state} size="medium" />
-<CircularProgress {...state} size="small" />
+<div class="main">
+  <ButtonCard expand={false} />
+</div>
