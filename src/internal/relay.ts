@@ -5,7 +5,6 @@ import { get_current_component } from 'svelte/internal';
 import { toDashCase } from '@vantage-js/string';
 
 // MARK: Types
-
 import type { SvelteComponent } from 'svelte';
 
 type MdTagNameMap = {
@@ -20,8 +19,6 @@ export type MdEvent<E extends keyof MdEventMap, T extends keyof MdTagNameMap> = 
   target: MdTagNameMap[T];
 };
 
-// type Test = MdEvent<'click', 'md-filled-button'>;
-
 // MARK: Code
 export default class Relay<Tag extends keyof MdTagNameMap, Props = {}, MdComp extends MdTagNameMap[Tag] = MdTagNameMap[Tag]> {
   init?: (node: MdTagNameMap[Tag]) => void;
@@ -29,11 +26,23 @@ export default class Relay<Tag extends keyof MdTagNameMap, Props = {}, MdComp ex
   private comp: SvelteComponent;
   private events: { type: string; handler: (event: any) => void }[] = [];
 
+  /**
+   * Constructs a new instance of the class.
+   *
+   * This constructor initializes the `comp` property with the result of calling the `get_current_component` function
+   * from the `svelte/internal` module. It then calls the `override` method to override the `$on` method of the component.
+   */
   constructor() {
     this.comp = get_current_component();
     this.override();
   }
 
+  /**
+   * Executes the action on the given node with the provided props.
+   * @param {MdNode} node - The node on which the action is performed.
+   * @param {Props} props - The props used for the action.
+   * @return {{ update: (props: Props) => void; destroy: () => void; }} - An object with methods to update and destroy the action.
+   */
   action<MdNode extends MdComp>(node: MdNode, props: Props) {
     if (this.init) this.init(node);
     if (this.update) this.update(node, props);
@@ -52,18 +61,40 @@ export default class Relay<Tag extends keyof MdTagNameMap, Props = {}, MdComp ex
     };
   }
 
-  private listen(node: Node) {
+  /**
+   * Adds an event listener to the list of events.
+   * @param type - The type of event to listen for.
+   * @param handler - The function to call when the event is triggered.
+   */
+  on<K extends keyof MdEventMap>(type: K, handler: (event: MdEvent<K, Tag>) => void) {
+    this.events.push({ type, handler });
+  }
+
+  /**
+   * Listens for events on the given node and adds event listeners for each event in the events array.
+   * @param node - The node to listen for events on.
+   */
+  private listen<MdNode extends MdComp>(node: MdNode) {
     this.events.forEach(({ type, handler }) => {
+      // @ts-ignore
       node.addEventListener(type, handler);
     });
   }
 
-  private destroy(node: Node) {
+  /**
+   * Destroys the event listeners attached to the given node.
+   * @param node - The node to remove event listeners from.
+   */
+  private destroy<MdNode extends MdComp>(node: MdNode) {
     this.events.forEach(({ type, handler }) => {
+      // @ts-ignore
       node.removeEventListener(type, handler);
     });
   }
 
+  /**
+   * Overrides the `$on` method of the component to add event listeners for each event in the events array.
+   */
   private override() {
     this.comp.$on = (type: string, handler: (event: any) => void) => {
       if (typeof handler !== 'function') return () => {};
