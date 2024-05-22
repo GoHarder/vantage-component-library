@@ -1,6 +1,7 @@
 <script>
   // Components
   import ButtonCard from './sections/button-section.svelte';
+  import CheckboxCard from './sections/checkbox-section.svelte';
 
   // Stores
   // Properties
@@ -51,4 +52,5 @@
 
 <div class="main">
   <ButtonCard expand={false} />
+  <CheckboxCard expand={true} />
 </div>

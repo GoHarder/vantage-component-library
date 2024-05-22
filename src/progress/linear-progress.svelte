@@ -2,11 +2,8 @@
   import '@material/web/progress/linear-progress.js';
   import Relay from '../internal/relay.js';
 
-  // TODO: 3-20-2024 4:00 PM
-  // Have component be able to be hidden when indeterminate is false and value is 0.
-
   /* Properties
-   * ---------------------------------------------------------------------------------- */
+   * --------------------------------------------------------------------------------- */
 
   /** Buffer amount to display, a fraction between 0 and `max`. */
   export let buffer = 1;
