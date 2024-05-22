@@ -4,11 +4,9 @@ import { get_current_component } from 'svelte/internal';
 
 import { toDashCase } from '@vantage-js/string';
 
-/* Types
- * ------------------------------------------------------------------- */
+// MARK: Types
 
 import type { SvelteComponent } from 'svelte';
-import type { ActionReturn } from 'svelte/action';
 
 type MdTagNameMap = {
   [Key in keyof HTMLElementTagNameMap as Key extends `md-${string}` ? Key : never]: HTMLElementTagNameMap[Key];
@@ -18,29 +16,68 @@ interface MdEventMap extends HTMLElementEventMap {
   closed: Event;
 }
 
-/* Code
- * ------------------------------------------------------------------- */
+export type MdEvent<E extends keyof MdEventMap, T extends keyof MdTagNameMap> = MdEventMap[E] & {
+  target: MdTagNameMap[T];
+};
 
+// type Test = MdEvent<'click', 'md-filled-button'>;
+
+// MARK: Code
 export default class Relay<Tag extends keyof MdTagNameMap, Props = {}, MdComp extends MdTagNameMap[Tag] = MdTagNameMap[Tag]> {
-  private svComp: SvelteComponent;
-
   init?: (node: MdTagNameMap[Tag]) => void;
-
   update?: (node: MdTagNameMap[Tag], props: Props) => void;
+  private comp: SvelteComponent;
+  private events: { type: string; handler: (event: any) => void }[] = [];
 
   constructor() {
-    this.svComp = get_current_component();
+    this.comp = get_current_component();
+    this.override();
   }
 
   action<MdNode extends MdComp>(node: MdNode, props: Props) {
     if (this.init) this.init(node);
     if (this.update) this.update(node, props);
 
+    this.init?.bind(this)(node);
+
+    this.listen(node);
+
     return {
       update: (props: Props) => {
         this.update?.bind(this)(node, props);
       },
-      destroy: () => {},
+      destroy: () => {
+        this.destroy.bind(this)(node);
+      },
+    };
+  }
+
+  private listen(node: Node) {
+    this.events.forEach(({ type, handler }) => {
+      node.addEventListener(type, handler);
+    });
+  }
+
+  private destroy(node: Node) {
+    this.events.forEach(({ type, handler }) => {
+      node.removeEventListener(type, handler);
+    });
+  }
+
+  private override() {
+    this.comp.$on = (type: string, handler: (event: any) => void) => {
+      if (typeof handler !== 'function') return () => {};
+
+      this.events.push({ type, handler });
+
+      const callbacks = this.comp.$$.callbacks[type] || (this.comp.$$.callbacks[type] = []);
+
+      callbacks.push(handler);
+
+      return () => {
+        const index = callbacks.indexOf(handler);
+        if (index !== -1) callbacks.splice(index, 1);
+      };
     };
   }
 
