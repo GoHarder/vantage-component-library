@@ -16,7 +16,7 @@
   type MdComp = `md-${Variant}-button`;
 
   interface $$Events {
-    click: MdEvent<'click', `md-${Variant}-button`>;
+    click: MdEvent<'click', MdComp>;
   }
 
   // MARK: Properties
@@ -39,7 +39,7 @@
   /**
    * Whether to render the icon at the inline end of the label rather than the inline start.
    *
-   * _Note_: Link buttons cannot have trailing icons.
+   * NOTE: Link buttons cannot have trailing icons.
    */
   export let trailingIcon = false;
 

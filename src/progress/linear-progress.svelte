@@ -2,8 +2,8 @@
   import '@material/web/progress/linear-progress.js';
   import Relay from '../internal/relay.js';
 
-  /* Properties
-   * --------------------------------------------------------------------------------- */
+  // MARK: Properties
+  // ------------------------------------------------
 
   /** Buffer amount to display, a fraction between 0 and `max`. */
   export let buffer = 1;
@@ -28,20 +28,20 @@
 
   export let visible = false;
 
-  /* Constants
-   * ---------------------------------------------------------------------------------- */
+  // MARK: Constants
+  // ------------------------------------------------
 
   const relay = new Relay<'md-linear-progress', typeof actionProps>();
 
-  /* Reactive Rules
-   * ---------------------------------------------------------------------------------- */
+  // MARK: Reactive Rules
+  // ------------------------------------------------
 
   $: actionProps = { buffer, value, max, indeterminate };
 
   $: props = Relay.props($$props, ['value', 'indeterminate', 'fourColor', 'visible', 'buffer', 'max', 'visible']);
 
-  /* Lifecycle
-   * ---------------------------------------------------------------------------------- */
+  // MARK: Lifecycle
+  // ------------------------------------------------
 
   relay.init = (node) => {
     node.fourColor = fourColor;

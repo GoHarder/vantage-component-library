@@ -2,8 +2,8 @@
   import '@material/web/progress/circular-progress.js';
   import Relay from '../internal/relay.js';
 
-  /* Properties
-   * ---------------------------------------------------------------------------------- */
+  // MARK: Properties
+  // ------------------------------------------------
 
   /** Progress to display, a fraction between 0 and `max`. */
   export let value = 0;
@@ -25,20 +25,20 @@
 
   export let size: 'small' | 'medium' | 'large' = 'large';
 
-  /* Constants
-   * ---------------------------------------------------------------------------------- */
+  // MARK: Constants
+  // ------------------------------------------------
 
   const relay = new Relay<'md-circular-progress', typeof actionProps>();
 
-  /* Reactive Rules
-   * ---------------------------------------------------------------------------------- */
+  // MARK: Reactive Rules
+  // ------------------------------------------------
 
   $: actionProps = { value, max, indeterminate };
 
   $: props = Relay.props($$props, ['value', 'max', 'indeterminate', 'fourColor', 'size']);
 
-  /* Lifecycle
-   * ---------------------------------------------------------------------------------- */
+  // MARK: Lifecycle
+  // ------------------------------------------------
 
   relay.init = (node) => {
     node.fourColor = fourColor;
