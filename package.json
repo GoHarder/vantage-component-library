@@ -1,6 +1,6 @@
 {
   "name": "vantage-svelte",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Vantage front end component library.",
   "scripts": {
     "rollup-build": "rollup -c",
@@ -26,17 +26,49 @@
       "types": "./dist/checkbox/index.d.ts",
       "svelte": "./dist/checkbox/index.js"
     },
+    "./chip": {
+      "types": "./dist/chip/index.d.ts",
+      "svelte": "./dist/chip/index.js"
+    },
     "./divider": {
       "types": "./dist/divider/index.d.ts",
       "svelte": "./dist/divider/index.js"
+    },
+    "./elevation": {
+      "types": "./dist/elevation/index.d.ts",
+      "svelte": "./dist/elevation/index.js"
+    },
+    "./fab": {
+      "types": "./dist/fab/index.d.ts",
+      "svelte": "./dist/fab/index.js"
+    },
+    "./focus": {
+      "types": "./dist/focus/index.d.ts",
+      "svelte": "./dist/focus/index.js"
     },
     "./icon": {
       "types": "./dist/icon/index.d.ts",
       "svelte": "./dist/icon/index.js"
     },
+    "./icon-button": {
+      "types": "./dist/icon-button/index.d.ts",
+      "svelte": "./dist/icon-button/index.js"
+    },
+    "./list": {
+      "types": "./dist/list/index.d.ts",
+      "svelte": "./dist/list/index.js"
+    },
+    "./menu": {
+      "types": "./dist/menu/index.d.ts",
+      "svelte": "./dist/menu/index.js"
+    },
     "./progress": {
       "types": "./dist/progress/index.d.ts",
       "svelte": "./dist/progress/index.js"
+    },
+    "./radio": {
+      "types": "./dist/radio/index.d.ts",
+      "svelte": "./dist/radio/index.js"
     }
   },
   "dependencies": {

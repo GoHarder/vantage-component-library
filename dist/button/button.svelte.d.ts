@@ -8,7 +8,7 @@ import type { MdEvent } from '../internal/relay.js';
 declare const __propDef: {
     props: {
         [x: string]: any;
-        variant?: ("elevated" | "filled" | "filled-tonal" | "outlined" | "text") | undefined;
+        variant?: ("text" | "elevated" | "filled" | "filled-tonal" | "outlined") | undefined;
         disabled?: boolean | undefined;
         href?: string | undefined;
         target?: "" | "_blank" | "_parent" | "_self" | "_top" | undefined;
