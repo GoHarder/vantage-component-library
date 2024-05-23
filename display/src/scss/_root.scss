@@ -7,6 +7,17 @@ $typescale: sys-typescale.values();
   --md-ref-typeface-brand: 'Familjen Grotesk', sans-serif;
   --md-ref-typeface-plain: system-ui;
   --md-icon-font: 'Material Symbols Sharp';
+  // --md-sys-shape-corner-extra-small: 4px
+  // --md-sys-shape-corner-small:       8px   +4
+  // --md-sys-shape-corner-medium:      12px  +4
+  // --md-sys-shape-corner-large:       16px  +4
+  // --md-sys-shape-corner-extra-large: 28px  +12
+
+  --md-sys-shape-corner-extra-small: 2px;
+  --md-sys-shape-corner-small: 4px;
+  --md-sys-shape-corner-medium: 6px;
+  --md-sys-shape-corner-large: 8px;
+  --md-sys-shape-corner-extra-large: 14px;
 
   @each $key, $value in $typescale {
     --md-sys-typescale-#{$key}: #{$value};
