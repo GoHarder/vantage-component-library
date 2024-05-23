@@ -1,5 +1,7 @@
 <script>
   // Components
+  import { Elevation } from '../../../../dist/elevation/index.js';
+
   // Stores
   // Properties
   export let expand = false;
@@ -15,6 +17,7 @@
 </script>
 
 <section class="component">
+  <Elevation />
   <header>
     <slot name="header" />
     {#if expand}

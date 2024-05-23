@@ -1,8 +1,8 @@
 <script>
   // Components
   import Section from './section.svelte';
-  import { Button } from '../../../../dist/button/index.js';
-  import { Icon } from '../../../../dist/icon/index.js';
+  import { Button } from '../../../../dist/button';
+  import { Icon } from '../../../../dist/icon';
 
   // Stores
   // Properties
