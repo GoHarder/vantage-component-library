@@ -1,21 +1,49 @@
-<script>
-  // Components
-  import Section from './section.svelte';
-  import { FocusRing } from '../../../../dist/focus';
+<script lang="ts">
+  import '@material/web/focus/md-focus-ring.js';
+  import Relay from '../internal/relay.js';
 
-  // Stores
-  // Properties
-  // Methods
-  // Constants
-  // Variables
-  // Contexts
-  // Subscriptions
-  // Reactive Rules
-  // Events
-  // Lifecycle
+  // MARK: Types
+  // ------------------------------------------------
+
+  // MARK: Properties
+  // ------------------------------------------------
+
+  /** Makes the focus ring visible. */
+  export let visible = false;
+
+  /** Makes the focus ring animate inwards instead of outwards. */
+  export let inward = false;
+
+  // MARK: Constants
+  // ------------------------------------------------
+
+  const relay = new Relay<'md-focus-ring', typeof actionProps>();
+
+  // MARK: Reactive Rules
+  // ------------------------------------------------
+
+  $: actionProps = { visible };
+
+  $: props = Relay.props($$props, ['visible', 'inward']);
+
+  // MARK: Lifecycle
+  // ------------------------------------------------
+
+  relay.init = (node) => {
+    node.inward = inward;
+  };
+
+  relay.update = (node, props) => {
+    node.visible = props.visible;
+  };
 </script>
 
-<FocusRing />
+<md-focus-ring use:relay.action={actionProps} {...props} />
 
-<style>
+<style global>
+  @media (prefers-reduced-motion: reduce) {
+    md-focus-ring {
+      --md-focus-ring-duration: 0s;
+    }
+  }
 </style>
