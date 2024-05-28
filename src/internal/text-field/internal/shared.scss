@@ -1,0 +1,41 @@
+@use 'sass:map';
+
+@use '@material/web/textfield/internal/icon';
+@use '@material/web/textfield/internal/input';
+
+// @use './icon';
+// @use './input';
+
+:host {
+  display: inline-flex;
+  outline: none;
+  resize: both;
+  text-align: end;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.text-field,
+.field {
+  width: 100%;
+}
+
+.text-field {
+  display: inline-flex;
+}
+
+.field {
+  cursor: text;
+}
+
+.disabled .field {
+  cursor: default;
+}
+
+.text-field,
+.textarea .field {
+  // Note: only inherit default `resize: both` to the field when textarea.
+  resize: inherit;
+}
+
+@include icon.styles;
+@include input.styles;

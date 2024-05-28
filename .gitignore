@@ -1,5 +1,6 @@
 .svelte-kit
 .vscode/settings.json
+.wireit
 display/dist
 node_modules
 temp
