@@ -13,6 +13,12 @@
   import MenuCard from './sections/menu-section.svelte';
   import ProgressCard from './sections/progress-section.svelte';
   import RadioCard from './sections/radio-section.svelte';
+  import RippleCard from './sections/ripple-section.svelte';
+  import SelectCard from './sections/select-section.svelte';
+  import SliderCard from './sections/slider-section.svelte';
+  import SwitchCard from './sections/switch-section.svelte';
+  import TabsCard from './sections/tabs-section.svelte';
+  import TextFieldCard from './sections/text-field-section.svelte';
 
   // Stores
   // Properties
@@ -42,7 +48,13 @@
   <ListCard expand={false} />
   <MenuCard expand={false} />
   <ProgressCard expand={false} />
-  <RadioCard expand={true} />
+  <RadioCard expand={false} />
+  <RippleCard expand={false} />
+  <SelectCard expand={false} />
+  <SliderCard expand={false} />
+  <SwitchCard expand={false} />
+  <TabsCard expand={false} />
+  <TextFieldCard expand={true} />
 </div>
 
 <style>
