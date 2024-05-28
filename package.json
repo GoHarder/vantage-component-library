@@ -2,16 +2,28 @@
   "name": "vantage-svelte",
   "version": "1.0.3",
   "description": "Vantage front end component library.",
-  "scripts": {
-    "rollup-build": "rollup -c",
-    "rollup-watch": "rollup -c -w",
-    "svelte-build": "svelte-kit sync && svelte-package -i ./src -o ./dist",
-    "svelte-watch": "svelte-package -w -i ./src -o ./dist"
-  },
   "author": "Gregory Harder",
   "license": "MIT",
   "type": "module",
   "private": true,
+  "scripts": {
+    "build:sass-to-lit": "wireit",
+    "rollup:build": "rollup -c",
+    "rollup:watch": "rollup -c -w",
+    "svelte:build": "svelte-kit sync && svelte-package -i ./src -o ./dist",
+    "svelte:watch": "svelte-package -w -i ./src -o ./dist"
+  },
+  "wireit": {
+    "build:sass-to-lit": {
+      "command": "bash scripts/sass-to-lit.sh",
+      "files": [
+        "/src/internal/**/*.scss"
+      ],
+      "output": [
+        "/src/internal/**/*-styles.ts"
+      ]
+    }
+  },
   "files": [
     "dist/**/*",
     "package.json",
@@ -90,6 +102,6 @@
     "rollup-plugin-svelte": "^7.2.0",
     "sass": "^1.77.2",
     "svelte-preprocess": "^5.1.4",
-    "typescript": "^5.4.5"
+    "wireit": "^0.14.4"
   }
 }
