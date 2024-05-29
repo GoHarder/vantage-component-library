@@ -4,8 +4,8 @@
 </script>
 
 <script lang="ts">
-  import '../internal/text-field/filled-number-field.js';
-  import '../internal/text-field/outlined-number-field.js';
+  import '../internal/text-field/filled-length-field.js';
+  import '../internal/text-field/outlined-length-field.js';
   import { getContext } from 'svelte';
   import { round } from '@vantage-js/math';
   import Relay from '../internal/relay.js';
@@ -13,7 +13,7 @@
   // MARK: Types
   // ------------------------------------------------
 
-  type MdComp = 'md-outlined-number-field' | 'md-filled-number-field';
+  type MdComp = 'md-outlined-length-field' | 'md-filled-length-field';
 
   // MARK: Properties
   // ------------------------------------------------
@@ -109,7 +109,7 @@
    *
    * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#input_types)
    */
-  export let type: keyof typeof types = 'number';
+  // export let type: keyof typeof types = 'number';
 
   /**
    * Describes what, if any, type of autocomplete functionality the input should provide.
@@ -120,45 +120,10 @@
 
   export let name = undefined;
 
-  // MARK:  Methods
-  // ------------------------------------------------
-
-  function pass(num: number) {
-    return num;
-  }
-
   // MARK: Constants
   // ------------------------------------------------
 
   const relay = new Relay<MdComp, typeof actionProps>();
-
-  const types = {
-    angle: { iUnit: '°', toMetric: () => '', toValue: pass, toComp: pass },
-    area: {
-      iUnit: 'ft²',
-      toMetric: (x: number) => `${round(x * 6.4516e-4, 0.0001)} m²`,
-      toValue: (x: number) => round(x * 144, 0.000001),
-      toComp: (x: number) => round(x / 144, 0.01),
-    },
-    number: { iUnit: suffixText, toMetric: () => '', toValue: pass, toComp: pass },
-    percent: { iUnit: '%', toMetric: () => '', toValue: (x: number) => round(x / 100, 0.001), toComp: (x: number) => x * 100 },
-    pressure: {
-      iUnit: 'lb/ft²',
-      toMetric: (x: number) => `${round(x * 4.88242764, 0.0001)} kg/m²`,
-      toValue: (x: number) => round(x / 144, 0.000001),
-      toComp: (x: number) => round(x * 144, 0.01),
-    },
-    speed: { iUnit: 'ft/min', toMetric: (x: number) => `${round(x * 5.08e-3, 0.0001)} m/sec`, toValue: pass, toComp: pass },
-    torque: {
-      iUnit: 'lb/ft',
-      toMetric: (x: number) => `${round(x * 1.48816, 0.0001)} kg/m`,
-      toValue: (x: number) => round(x / 12, 0.0001),
-      toComp: (x: number) => round(x * 12, 0.0001),
-    },
-    weight: { iUnit: 'lb', toMetric: (x: number) => `${round(x * 0.453592, 0.1)} kg`, toValue: pass, toComp: pass },
-  };
-
-  const { iUnit, toMetric, toComp, toValue } = types[type] || types.number;
 
   // MARK: Contexts
   // ------------------------------------------------
@@ -179,32 +144,29 @@
 
   $: props = Relay.props($$props, ['metric', 'disabled', 'error', 'errorText', 'label', 'value', 'supportingText']);
 
-  $: metricValue = metric && value ? toMetric(value) : '';
-
   // MARK: Events
   // ------------------------------------------------
 
   relay.on('change', (event) => {
-    value = toValue(event.target.valueAsNumber);
+    value = event.target.valueAsNumber;
   });
 
   // MARK: Lifecycle
   // ------------------------------------------------
-
   relay.init = (node) => {
     node.required = required;
     node.prefixText = prefixText;
-    node.suffixText = iUnit || suffixText;
     node.inputMode = 'decimal';
-    node.max = max;
-    node.min = min;
-    node.placeholder = placeholder;
+    // node.max = max;
+    // node.min = min;
+    // node.placeholder = placeholder;
     node.readOnly = readOnly;
-    node.multiple = multiple;
+    // node.multiple = multiple;
     node.step = step;
     node.type = 'number';
     node.autocomplete = autocomplete;
     if (name) node.name = name;
+    node.value = '';
   };
 
   relay.update = (node, props) => {
@@ -212,19 +174,19 @@
     node.error = props.error;
     node.errorText = props.errorText;
     node.label = props.label;
-    node.supportingText = metricValue || props.supportingText;
-    if (props.value !== undefined) node.valueAsNumber = toComp(props.value);
+    // node.supportingText = metricValue || props.supportingText;
+    if (props.value !== undefined) node.value = `${props.value}`;
   };
 </script>
 
 {#if outlined}
-  <md-outlined-number-field no-spinner use:relay.action={actionProps} {...props}>
+  <md-outlined-length-field no-spinner use:relay.action={actionProps} {...props}>
     {#if $$slots['leading-icon']}<slot name="leading-icon" />{/if}
     {#if $$slots['trailing-icon']}<slot name="trailing-icon" />{/if}
-  </md-outlined-number-field>
+  </md-outlined-length-field>
 {:else}
-  <md-filled-number-field no-spinner use:relay.action={actionProps} {...props}>
+  <md-filled-length-field no-spinner use:relay.action={actionProps} {...props}>
     {#if $$slots['leading-icon']}<slot name="leading-icon" />{/if}
     {#if $$slots['trailing-icon']}<slot name="trailing-icon" />{/if}
-  </md-filled-number-field>
+  </md-filled-length-field>
 {/if}
