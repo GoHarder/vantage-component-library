@@ -30,6 +30,9 @@
     "README.md"
   ],
   "exports": {
+    ".": {
+      "types": "./dist/globals.d.ts"
+    },
     "./button": {
       "types": "./dist/button/index.d.ts",
       "svelte": "./dist/button/index.js"
@@ -41,6 +44,10 @@
     "./chip": {
       "types": "./dist/chip/index.d.ts",
       "svelte": "./dist/chip/index.js"
+    },
+    "./dialog": {
+      "types": "./dist/dialog/index.d.ts",
+      "svelte": "./dist/dialog/index.js"
     },
     "./divider": {
       "types": "./dist/divider/index.d.ts",
