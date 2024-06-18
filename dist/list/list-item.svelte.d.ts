@@ -21,6 +21,8 @@ declare const __propDef: {
         'supporting-text': {};
         'trailing-supporting-text': {};
     };
+    exports?: undefined;
+    bindings?: undefined;
 };
 export type ListItemProps = typeof __propDef.props;
 export type ListItemEvents = typeof __propDef.events;

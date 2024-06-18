@@ -24,6 +24,8 @@ declare const __propDef: {
         default: {};
         selected: {};
     };
+    exports?: {} | undefined;
+    bindings?: string | undefined;
 };
 export type IconButtonProps = typeof __propDef.props;
 export type IconButtonEvents = typeof __propDef.events;

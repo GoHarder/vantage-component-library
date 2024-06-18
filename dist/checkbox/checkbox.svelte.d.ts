@@ -14,6 +14,8 @@ declare const __propDef: {
         [evt: string]: CustomEvent<any>;
     };
     slots: {};
+    exports?: undefined;
+    bindings?: undefined;
 };
 export type CheckboxProps = typeof __propDef.props;
 export type CheckboxEvents = typeof __propDef.events;

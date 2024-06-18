@@ -13,6 +13,8 @@ declare const __propDef: {
         [evt: string]: CustomEvent<any>;
     };
     slots: {};
+    exports?: undefined;
+    bindings?: undefined;
 };
 export type CircularProgressProps = typeof __propDef.props;
 export type CircularProgressEvents = typeof __propDef.events;

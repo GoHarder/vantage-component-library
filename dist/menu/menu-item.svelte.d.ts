@@ -19,6 +19,8 @@ declare const __propDef: {
         headline: {};
         end: {};
     };
+    exports?: undefined;
+    bindings?: undefined;
 };
 export type MenuItemProps = typeof __propDef.props;
 export type MenuItemEvents = typeof __propDef.events;

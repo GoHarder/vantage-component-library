@@ -17,6 +17,8 @@ declare const __propDef: {
     slots: {
         icon: {};
     };
+    exports?: {} | undefined;
+    bindings?: string | undefined;
 };
 export type FabProps = typeof __propDef.props;
 export type FabEvents = typeof __propDef.events;

@@ -16,6 +16,8 @@ declare const __propDef: {
     slots: {
         icon: {};
     };
+    exports?: undefined;
+    bindings?: undefined;
 };
 export type FilterChipProps = typeof __propDef.props;
 export type FilterChipEvents = typeof __propDef.events;

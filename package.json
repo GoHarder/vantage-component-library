@@ -81,6 +81,30 @@
     "./radio": {
       "types": "./dist/radio/index.d.ts",
       "svelte": "./dist/radio/index.js"
+    },
+    "./ripple": {
+      "types": "./dist/ripple/index.d.ts",
+      "svelte": "./dist/ripple/index.js"
+    },
+    "./select": {
+      "types": "./dist/select/index.d.ts",
+      "svelte": "./dist/select/index.js"
+    },
+    "./slider": {
+      "types": "./dist/slider/index.d.ts",
+      "svelte": "./dist/slider/index.js"
+    },
+    "./switch": {
+      "types": "./dist/switch/index.d.ts",
+      "svelte": "./dist/switch/index.js"
+    },
+    "./tabs": {
+      "types": "./dist/tabs/index.d.ts",
+      "svelte": "./dist/tabs/index.js"
+    },
+    "./text-field": {
+      "types": "./dist/text-field/index.d.ts",
+      "svelte": "./dist/text-field/index.js"
     }
   },
   "dependencies": {

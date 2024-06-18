@@ -1,21 +1,19 @@
-<script>import "@material/web/list/list-item.js";
-import Relay from "../internal/relay.js";
+<script>import '@material/web/list/list-item.js';
+import Relay from '../internal/relay.js';
 export let disabled = false;
-export let type = "text";
-export let href = "";
-export let target = "";
+export let type = 'text';
+export let href = '';
+export let target = '';
 const relay = new Relay();
-$:
-  actionProps = { disabled };
-$:
-  props = Relay.props($$props, ["disabled", "type", "href", "target"]);
+$: actionProps = { disabled };
+$: props = Relay.props($$props, ['disabled', 'type', 'href', 'target']);
 relay.init = (node) => {
-  node.href = href;
-  node.target = target;
-  node.type = type;
+    node.href = href;
+    node.target = target;
+    node.type = type;
 };
-relay.update = (node, props2) => {
-  node.disabled = props2.disabled;
+relay.update = (node, props) => {
+    node.disabled = props.disabled;
 };
 </script>
 

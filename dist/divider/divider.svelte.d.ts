@@ -11,6 +11,8 @@ declare const __propDef: {
         [evt: string]: CustomEvent<any>;
     };
     slots: {};
+    exports?: undefined;
+    bindings?: undefined;
 };
 export type DividerProps = typeof __propDef.props;
 export type DividerEvents = typeof __propDef.events;

@@ -12,6 +12,8 @@ declare const __propDef: {
         [evt: string]: CustomEvent<any>;
     };
     slots: {};
+    exports?: undefined;
+    bindings?: undefined;
 };
 export type RadioProps = typeof __propDef.props;
 export type RadioEvents = typeof __propDef.events;

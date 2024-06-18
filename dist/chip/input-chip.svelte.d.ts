@@ -18,6 +18,8 @@ declare const __propDef: {
     slots: {
         icon: {};
     };
+    exports?: undefined;
+    bindings?: undefined;
 };
 export type InputChipProps = typeof __propDef.props;
 export type InputChipEvents = typeof __propDef.events;

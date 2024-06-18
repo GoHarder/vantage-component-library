@@ -24,6 +24,8 @@ declare const __propDef: {
         default: {};
         icon: {};
     };
+    exports?: {} | undefined;
+    bindings?: string | undefined;
 };
 export type ButtonProps = typeof __propDef.props;
 export type ButtonEvents = typeof __propDef.events;

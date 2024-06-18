@@ -4,7 +4,7 @@ declare const __propDef: {
     props: {
         [x: string]: any;
         anchor?: string | undefined;
-        positioning?: "absolute" | "fixed" | "document" | "popover" | undefined;
+        positioning?: "absolute" | "fixed" | "popover" | "document" | undefined;
         quick?: boolean | undefined;
         hasOverflow?: boolean | undefined;
         open?: boolean | undefined;
@@ -24,6 +24,8 @@ declare const __propDef: {
     slots: {
         default: {};
     };
+    exports?: undefined;
+    bindings?: undefined;
 };
 export type MenuProps = typeof __propDef.props;
 export type MenuEvents = typeof __propDef.events;

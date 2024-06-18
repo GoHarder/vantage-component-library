@@ -14,6 +14,8 @@ declare const __propDef: {
         [evt: string]: CustomEvent<any>;
     };
     slots: {};
+    exports?: undefined;
+    bindings?: undefined;
 };
 export type LinearProgressProps = typeof __propDef.props;
 export type LinearProgressEvents = typeof __propDef.events;

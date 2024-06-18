@@ -16,6 +16,8 @@ declare const __propDef: {
     slots: {
         icon: {};
     };
+    exports?: undefined;
+    bindings?: undefined;
 };
 export type AssistChipProps = typeof __propDef.props;
 export type AssistChipEvents = typeof __propDef.events;

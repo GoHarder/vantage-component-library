@@ -1,33 +1,31 @@
-<script>import "@material/web/button/elevated-button.js";
-import "@material/web/button/filled-button.js";
-import "@material/web/button/filled-tonal-button.js";
-import "@material/web/button/outlined-button.js";
-import "@material/web/button/text-button.js";
-import Relay from "../internal/relay.js";
-export let variant = "elevated";
+<script>import '@material/web/button/elevated-button.js';
+import '@material/web/button/filled-button.js';
+import '@material/web/button/filled-tonal-button.js';
+import '@material/web/button/outlined-button.js';
+import '@material/web/button/text-button.js';
+import Relay from '../internal/relay.js';
+export let variant = 'elevated';
 export let disabled = false;
-export let href = "";
-export let target = "";
+export let href = '';
+export let target = '';
 export let trailingIcon = false;
-export let type = "submit";
-export let value = "";
-export let name = void 0;
+export let type = 'submit';
+export let value = '';
+export let name = undefined;
 const relay = new Relay();
-$:
-  actionProps = { disabled };
-$:
-  props = Relay.props($$props, ["variant", "disabled", "href", "target", "trailingIcon", "type", "value", "name"]);
+$: actionProps = { disabled };
+$: props = Relay.props($$props, ['variant', 'disabled', 'href', 'target', 'trailingIcon', 'type', 'value', 'name']);
 relay.init = (node) => {
-  node.href = href;
-  node.target = target;
-  node.trailingIcon = trailingIcon;
-  node.type = type;
-  node.value = value;
-  if (name)
-    node.name = name;
+    node.href = href;
+    node.target = target;
+    node.trailingIcon = trailingIcon;
+    node.type = type;
+    node.value = value;
+    if (name)
+        node.name = name;
 };
-relay.update = (node, props2) => {
-  node.disabled = props2.disabled;
+relay.update = (node, props) => {
+    node.disabled = props.disabled;
 };
 </script>
 
