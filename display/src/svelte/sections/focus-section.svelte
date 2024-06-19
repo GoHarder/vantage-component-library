@@ -8,6 +8,7 @@
   // Stores
   // Properties
   export let expand = false;
+  export let debug = false;
 
   // Methods
   // Constants
@@ -29,7 +30,7 @@
   });
 </script>
 
-<Section {expand}>
+<Section bind:expand bind:debug>
   <h2 slot="header">Focus rings</h2>
   <p slot="supporting-text">Focus rings are accessible outlines for components to show keyboard focus.</p>
 

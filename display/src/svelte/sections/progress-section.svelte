@@ -9,6 +9,7 @@
   // Stores
   // Properties
   export let expand = false;
+  export let debug = true;
 
   // Methods
   // Constants
@@ -105,7 +106,7 @@
   });
 </script>
 
-<Section {expand}>
+<Section bind:expand bind:debug>
   <h2 slot="header">Progress indicators</h2>
   <div slot="supporting-text">
     <p>Progress indicators inform users about the status of ongoing processes, such as loading an app, submitting a form, or saving updates.</p>

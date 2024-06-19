@@ -6,6 +6,7 @@
   // Stores
   // Properties
   export let expand = false;
+  export let debug = false;
 
   // Methods
   // Constants
@@ -17,7 +18,7 @@
   // Lifecycle
 </script>
 
-<Section {expand}>
+<Section bind:expand bind:debug>
   <h2 slot="header">Switches</h2>
   <p slot="supporting-text">Switches toggle the state of a single item on or off.</p>
 

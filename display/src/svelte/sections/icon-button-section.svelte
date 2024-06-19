@@ -28,7 +28,7 @@
   // Lifecycle
 </script>
 
-<Section {expand}>
+<Section bind:expand bind:debug>
   <h2 slot="header">Icon buttons</h2>
   <p slot="supporting-text">Icon buttons help people take supplementary actions with a single tap.</p>
 

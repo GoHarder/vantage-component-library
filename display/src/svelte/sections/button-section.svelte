@@ -7,6 +7,7 @@
   // Stores
   // Properties
   export let expand = false;
+  export let debug = false;
 
   // Methods
   // Constants
@@ -18,7 +19,7 @@
   // Lifecycle
 </script>
 
-<Section {expand}>
+<Section bind:expand bind:debug>
   <h2 slot="header">Buttons</h2>
   <p slot="supporting-text">Buttons help people take actions, such as sending an email, sharing a document, or liking a comment.</p>
 

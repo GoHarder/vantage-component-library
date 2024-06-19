@@ -6,6 +6,7 @@
   // Stores
   // Properties
   export let expand = false;
+  export let debug = false;
 
   // Methods
   // Constants
@@ -17,7 +18,7 @@
   // Lifecycle
 </script>
 
-<Section {expand}>
+<Section bind:expand bind:debug>
   <h2 slot="header">Icons</h2>
   <p slot="supporting-text">Icons can be used to represent common actions.</p>
   <Icon>settings</Icon>

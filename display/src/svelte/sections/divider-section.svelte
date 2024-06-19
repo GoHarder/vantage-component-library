@@ -7,6 +7,7 @@
   // Stores
   // Properties
   export let expand = false;
+  export let debug = false;
 
   // Methods
   // Constants
@@ -18,7 +19,7 @@
   // Lifecycle
 </script>
 
-<Section {expand}>
+<Section bind:expand bind:debug>
   <h2 slot="header">Dividers</h2>
 
   <p slot="supporting-text">A divider is a thin line that groups content in lists and containers.</p>

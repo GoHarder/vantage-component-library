@@ -6,6 +6,7 @@
   // Stores
   // Properties
   export let expand = false;
+  export let debug = false;
 
   // Methods
   // Constants
@@ -17,7 +18,7 @@
   // Lifecycle
 </script>
 
-<Section {expand}>
+<Section bind:expand bind:debug>
   <h2 slot="header">Elevations</h2>
   <p slot="supporting-text">Elevation is the relative distance between two surfaces along the z-axis.</p>
   <div class="surface-1">

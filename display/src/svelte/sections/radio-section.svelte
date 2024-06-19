@@ -6,6 +6,7 @@
   // Stores
   // Properties
   export let expand = false;
+  export let debug = false;
 
   // Methods
   // Constants
@@ -17,7 +18,7 @@
   // Lifecycle
 </script>
 
-<Section {expand}>
+<Section bind:expand bind:debug>
   <h2 slot="header">Radio buttons</h2>
   <div slot="supporting-text">
     <p>Radio buttons allow users to select one option from a set.</p>

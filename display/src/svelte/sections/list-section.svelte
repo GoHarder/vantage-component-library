@@ -9,6 +9,7 @@
   // Stores
   // Properties
   export let expand = false;
+  export let debug = false;
 
   // Methods
   // Constants
@@ -20,7 +21,7 @@
   // Lifecycle
 </script>
 
-<Section {expand}>
+<Section bind:expand bind:debug>
   <h2 slot="header">Lists</h2>
   <p slot="supporting-text">Lists are continuous, vertical indexes of text and images.</p>
   <List>

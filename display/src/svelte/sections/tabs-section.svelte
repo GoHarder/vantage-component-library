@@ -7,6 +7,7 @@
   // Stores
   // Properties
   export let expand = false;
+  export let debug = false;
 
   // Methods
   // Constants
@@ -20,7 +21,7 @@
   // Lifecycle
 </script>
 
-<Section {expand}>
+<Section bind:expand bind:debug>
   <h2 slot="header">Tabs</h2>
   <p slot="supporting-text">Tabs organize and support navigation between groups of related content at the same level of hierarchy.</p>
 

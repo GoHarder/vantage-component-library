@@ -1,7 +1,8 @@
 <script>
   import Section from './section.svelte';
   import { Icon } from '../../../../dist/icon';
-  import { NumberField, TextField } from '../../../../dist/text-field';
+  import { IconButton } from '../../../../dist/icon-button';
+  import { LengthField, NumberField, TextField } from '../../../../dist/text-field';
 
   // Components
   // Stores
@@ -26,15 +27,15 @@
   // Subscriptions
   // Reactive Rules
   $: if (debug) {
-    // console.table(hero);
-    console.log('svelte', value);
+    console.table(hero);
+    // console.log('svelte', value);
   }
 
   // Events
   // Lifecycle
 </script>
 
-<Section {expand}>
+<Section bind:expand bind:debug>
   <h2 slot="header">Text Fields</h2>
   <div slot="supporting-text">
     <p>Text fields allow users to enter text into a UI.</p>
@@ -85,9 +86,11 @@
 
     <h3>Number</h3>
     <NumberField label="Number" type="weight" metric />
+    <NumberField outlined label="Number" type="weight" metric />
 
     <h3>Length</h3>
-    <!-- <LengthField label="Length" /> -->
+    <LengthField label="Length" />
+    <LengthField outlined={true} label="Length" />
   {/if}
 </Section>
 

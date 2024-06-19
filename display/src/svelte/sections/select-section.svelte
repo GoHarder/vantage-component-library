@@ -24,7 +24,7 @@
   // Lifecycle
 </script>
 
-<Section {expand}>
+<Section bind:expand bind:debug>
   <h2 slot="header">Select</h2>
   <p slot="supporting-text">Select menus display a list of choices on temporary surfaces and display the currently selected menu item above the menu.</p>
   <Select label="Label" bind:value={value1} outlined>

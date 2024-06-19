@@ -27,7 +27,7 @@
   // Lifecycle
 </script>
 
-<Section {expand}>
+<Section bind:expand bind:debug>
   <h2 slot="header">Sliders</h2>
   <p slot="supporting-text">Sliders allow users to make selections from a range of values.</p>
   <div class="hero">

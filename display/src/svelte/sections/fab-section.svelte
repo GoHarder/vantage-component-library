@@ -7,6 +7,7 @@
   // Stores
   // Properties
   export let expand = false;
+  export let debug = false;
 
   // Methods
   // Constants
@@ -23,7 +24,7 @@
   // Lifecycle
 </script>
 
-<Section {expand}>
+<Section bind:expand bind:debug>
   <h2 slot="header">Floating action buttons (FAB)</h2>
   <div slot="supporting-text">
     <p>FABs help people take primary actions.</p>

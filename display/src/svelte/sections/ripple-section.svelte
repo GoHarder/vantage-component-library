@@ -6,6 +6,7 @@
   // Stores
   // Properties
   export let expand = false;
+  export let debug = false;
 
   // Methods
   // Constants
@@ -17,7 +18,7 @@
   // Lifecycle
 </script>
 
-<Section {expand}>
+<Section bind:expand bind:debug>
   <h2 slot="header">Ripples</h2>
   <div slot="supporting-text">
     <p>Ripples are state layers used to communicate the status of a component or interactive element.</p>

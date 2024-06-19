@@ -27,7 +27,7 @@
   // Lifecycle
 </script>
 
-<Section {expand}>
+<Section bind:expand bind:debug>
   <h2 slot="header">Chips</h2>
   <p slot="supporting-text">Chips help people enter information, make selections, filter content, or trigger actions.</p>
   {#if expand}

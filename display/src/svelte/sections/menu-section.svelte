@@ -8,6 +8,7 @@
   // Stores
   // Properties
   export let expand = false;
+  export let debug = false;
 
   // Methods
   // Constants
@@ -33,7 +34,7 @@
   }
 </script>
 
-<Section {expand}>
+<Section bind:expand bind:debug>
   <h2 slot="header">Menus</h2>
   <div slot="supporting-text">
     <p>Menus display a list of choices on a temporary surface.</p>
