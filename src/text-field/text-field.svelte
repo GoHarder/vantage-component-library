@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
   let context = false;
-  let style: Lib.StyleContext['textInput'] | undefined = undefined;
+  let style: SvelteContext['style']['textInput'] | undefined = undefined;
 </script>
 
 <script lang="ts">
@@ -13,6 +13,7 @@
   // ------------------------------------------------
 
   import type { TextField } from '@material/web/textfield/internal/text-field.js';
+  import type { SvelteContext } from '../main.js';
 
   type MdComp = 'md-outlined-text-field' | 'md-filled-text-field';
 
@@ -159,7 +160,7 @@
   // ------------------------------------------------
 
   if (!context) {
-    style = getContext<Lib.StyleContext>('style')?.textInput;
+    style = getContext<SvelteContext['style']>('context')?.textInput;
     context = true;
   }
 
@@ -177,7 +178,11 @@
   // MARK: Events
   // ------------------------------------------------
 
-  relay.on('change', (event) => {
+  relay.on('input', (event) => {
+    const invalidTargetTypes = ['submit', 'reset', 'button'];
+
+    if (invalidTargetTypes.includes(event.target.type)) return;
+
     value = event.target.value;
   });
 
