@@ -31,7 +31,8 @@
   ],
   "exports": {
     ".": {
-      "types": "./dist/globals.d.ts"
+      "types": "./dist/main.d.ts",
+      "import": "./dist/main.js"
     },
     "./button": {
       "types": "./dist/button/index.d.ts",
