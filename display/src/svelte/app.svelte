@@ -3,6 +3,7 @@
   import ButtonCard from './sections/button-section.svelte';
   import CheckboxCard from './sections/checkbox-section.svelte';
   import ChipCard from './sections/chip-section.svelte';
+  import DialogCard from './sections/dialog-section.svelte';
   import DividerCard from './sections/divider-section.svelte';
   import ElevationCard from './sections/elevation-section.svelte';
   import FabCard from './sections/fab-section.svelte';
@@ -35,10 +36,11 @@
 
 <h1>Component Library</h1>
 
-<div class="main">
+<main>
   <ButtonCard expand={false} />
   <CheckboxCard expand={false} />
   <ChipCard expand={false} />
+  <DialogCard expand={false} />
   <DividerCard expand={false} />
   <ElevationCard expand={false} />
   <FabCard expand={false} />
@@ -54,11 +56,5 @@
   <SliderCard expand={false} />
   <SwitchCard expand={false} />
   <TabsCard expand={false} />
-  <TextFieldCard expand={true} />
-</div>
-
-<style>
-  h1 {
-    margin: 16px 8px;
-  }
-</style>
+  <TextFieldCard expand={false} />
+</main>
