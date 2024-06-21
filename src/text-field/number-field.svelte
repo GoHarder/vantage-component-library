@@ -124,6 +124,9 @@
 
   export let name = undefined;
 
+  /** When true, hide the spinner for `type="number"` text fields. */
+  export let noSpinner = false;
+
   // MARK:  Methods
   // ------------------------------------------------
 
@@ -172,8 +175,9 @@
     context = true;
   }
 
-  if (style?.variant) {
+  if (style !== undefined) {
     outlined = style.variant === 'outlined';
+    noSpinner = style.noSpinner;
   }
 
   // MARK: Reactive Rules
