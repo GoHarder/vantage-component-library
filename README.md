@@ -1,6 +1,8 @@
-# Component Library
+# Component Library <!-- omit in toc -->
 
-## Documentation
+- [Package Documentation](#package-documentation)
+
+## Package Documentation
 
 [svelte-material-ui](https://github.com/hperrin/svelte-material-ui)
 
