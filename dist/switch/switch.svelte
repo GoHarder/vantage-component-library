@@ -18,8 +18,8 @@ if (!context) {
     context = true;
 }
 if (settings !== undefined) {
-    icons = settings.icons;
-    showOnlySelectedIcon = settings.showOnlySelectedIcon;
+    icons = settings?.icons ?? icons;
+    showOnlySelectedIcon = settings?.showOnlySelectedIcon ?? showOnlySelectedIcon;
 }
 $: actionProps = { disabled, selected };
 $: props = Relay.props($$props, ['icons', 'showOnlySelectedIcon', 'required', 'disabled', 'selected', 'value']);

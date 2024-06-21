@@ -1,19 +1,21 @@
 export type SvelteContext = {
-    reducedMotion: boolean;
+    reducedMotion?: boolean;
     style: {
-        select: {
-            variant: 'filled' | 'outlined';
+        numberInput?: {
+            noAsterisk?: boolean;
+            noSpinner?: boolean;
+            variant?: 'filled' | 'outlined';
         };
-        switch: {
-            icons: boolean;
-            showOnlySelectedIcon: boolean;
+        select?: {
+            variant?: 'filled' | 'outlined';
         };
-        textInput: {
-            variant: 'filled' | 'outlined';
+        switch?: {
+            icons?: boolean;
+            showOnlySelectedIcon?: boolean;
         };
-        numberInput: {
-            variant: 'filled' | 'outlined';
-            noSpinner: boolean;
+        textInput?: {
+            noAsterisk?: boolean;
+            variant?: 'filled' | 'outlined';
         };
     };
 };

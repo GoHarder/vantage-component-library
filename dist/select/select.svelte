@@ -29,9 +29,8 @@ if (!context) {
 }
 if (reducedMotion)
     quick = true;
-if (style !== undefined) {
+if (style?.variant !== undefined)
     outlined = style.variant === 'outlined';
-}
 $: actionProps = { disabled, errorText, label, supportingText, error, value, selectedIndex };
 $: props = Relay.props($$props, [
     'outlined',

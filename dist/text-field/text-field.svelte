@@ -35,11 +35,13 @@ export let autocomplete = 'on';
 export let name = undefined;
 const relay = new Relay();
 if (!context) {
-    style = getContext('context')?.textInput;
+    style = getContext('style').textInput;
     context = true;
 }
-if (style !== undefined) {
-    outlined = style.variant === 'outlined';
+if (context) {
+    if (style?.variant !== undefined)
+        outlined = style.variant === 'outlined';
+    noAsterisk = style?.noAsterisk ?? noAsterisk;
 }
 $: actionProps = { disabled, error, errorText, label, value, supportingText };
 $: props = Relay.props($$props, ['disabled', 'error', 'errorText', 'label', 'value', 'supportingText']);

@@ -64,9 +64,11 @@ if (!context) {
     style = getContext('style')?.numberInput;
     context = true;
 }
-if (style !== undefined) {
-    outlined = style.variant === 'outlined';
-    noSpinner = style.noSpinner;
+if (context) {
+    if (style?.variant !== undefined)
+        outlined = style.variant === 'outlined';
+    noAsterisk = style?.noAsterisk ?? noAsterisk;
+    noSpinner = style?.noSpinner ?? noSpinner;
 }
 $: actionProps = { disabled, error, errorText, label, value, supportingText };
 $: props = Relay.props($$props, ['metric', 'disabled', 'error', 'errorText', 'label', 'value', 'supportingText']);
