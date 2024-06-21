@@ -1,16 +1,17 @@
 import { SvelteComponent } from "svelte";
 import '@material/web/chips/input-chip.js';
+import type { MdInputChip } from '@material/web/chips/input-chip.js';
 declare const __propDef: {
     props: {
         [x: string]: any;
-        avatar?: boolean | undefined;
-        href?: string | undefined;
-        target?: "" | "_blank" | "_parent" | "_self" | "_top" | undefined;
-        removeOnly?: boolean | undefined;
-        selected?: boolean | undefined;
-        disabled?: boolean | undefined;
-        alwaysFocusable?: boolean | undefined;
-        label?: string | undefined;
+        avatar?: boolean;
+        href?: string;
+        target?: MdInputChip["target"];
+        removeOnly?: boolean;
+        selected?: boolean;
+        disabled?: boolean;
+        alwaysFocusable?: boolean;
+        label?: string;
     };
     events: {
         [evt: string]: CustomEvent<any>;

@@ -3,11 +3,11 @@ import '@material/web/checkbox/checkbox.js';
 declare const __propDef: {
     props: {
         [x: string]: any;
-        checked?: boolean | undefined;
-        disabled?: boolean | undefined;
-        indeterminate?: boolean | undefined;
-        required?: boolean | undefined;
-        value?: string | undefined;
+        checked?: boolean;
+        disabled?: boolean;
+        indeterminate?: boolean;
+        required?: boolean;
+        value?: string;
         name?: string | undefined;
     };
     events: {

@@ -3,9 +3,9 @@ import '@material/web/divider/divider.js';
 declare const __propDef: {
     props: {
         [x: string]: any;
-        inset?: boolean | undefined;
-        insetStart?: boolean | undefined;
-        insetEnd?: boolean | undefined;
+        inset?: boolean;
+        insetStart?: boolean;
+        insetEnd?: boolean;
     };
     events: {
         [evt: string]: CustomEvent<any>;

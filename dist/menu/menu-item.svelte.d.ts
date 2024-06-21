@@ -1,14 +1,15 @@
 import { SvelteComponent } from "svelte";
 import '@material/web/menu/menu-item.js';
+import type { MdMenuItem } from '@material/web/menu/menu-item.js';
 declare const __propDef: {
     props: {
         [x: string]: any;
-        disabled?: boolean | undefined;
-        type?: import("@material/web/menu/internal/controllers/menuItemController.js").MenuItemType | undefined;
-        href?: string | undefined;
-        target?: "" | "_blank" | "_parent" | "_self" | "_top" | undefined;
-        keepOpen?: boolean | undefined;
-        selected?: boolean | undefined;
+        disabled?: boolean;
+        type?: MdMenuItem["type"];
+        href?: string;
+        target?: MdMenuItem["target"];
+        keepOpen?: boolean;
+        selected?: boolean;
         typeaheadText?: string | undefined;
     };
     events: {

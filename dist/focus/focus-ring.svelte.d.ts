@@ -3,8 +3,8 @@ import '@material/web/focus/md-focus-ring.js';
 declare const __propDef: {
     props: {
         [x: string]: any;
-        visible?: boolean | undefined;
-        inward?: boolean | undefined;
+        visible?: boolean;
+        inward?: boolean;
     };
     events: {
         [evt: string]: CustomEvent<any>;

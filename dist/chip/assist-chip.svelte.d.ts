@@ -1,14 +1,15 @@
 import { SvelteComponent } from "svelte";
 import '@material/web/chips/assist-chip.js';
+import type { MdAssistChip } from '@material/web/chips/assist-chip.js';
 declare const __propDef: {
     props: {
         [x: string]: any;
-        elevated?: boolean | undefined;
-        href?: string | undefined;
-        target?: "" | "_blank" | "_parent" | "_self" | "_top" | undefined;
-        disabled?: boolean | undefined;
-        alwaysFocusable?: boolean | undefined;
-        label?: string | undefined;
+        elevated?: boolean;
+        href?: string;
+        target?: MdAssistChip["target"];
+        disabled?: boolean;
+        alwaysFocusable?: boolean;
+        label?: string;
     };
     events: {
         [evt: string]: CustomEvent<any>;

@@ -14,6 +14,7 @@ export let errorText = '';
 export let label = '';
 export let required = false;
 export let value = '';
+export let noAsterisk = false;
 export let prefixText = '';
 export let suffixText = '';
 export let supportingText = '';
@@ -34,15 +35,18 @@ export let autocomplete = 'on';
 export let name = undefined;
 const relay = new Relay();
 if (!context) {
-    style = getContext('style')?.textInput;
+    style = getContext('context')?.textInput;
     context = true;
 }
-if (style?.variant) {
+if (style !== undefined) {
     outlined = style.variant === 'outlined';
 }
 $: actionProps = { disabled, error, errorText, label, value, supportingText };
 $: props = Relay.props($$props, ['disabled', 'error', 'errorText', 'label', 'value', 'supportingText']);
-relay.on('change', (event) => {
+relay.on('input', (event) => {
+    const invalidTargetTypes = ['submit', 'reset', 'button'];
+    if (invalidTargetTypes.includes(event.target.type))
+        return;
     value = event.target.value;
 });
 relay.init = (node) => {
@@ -63,6 +67,7 @@ relay.init = (node) => {
     node.step = step;
     node.type = type;
     node.autocomplete = autocomplete;
+    node.noAsterisk = noAsterisk;
     if (name)
         node.name = name;
 };

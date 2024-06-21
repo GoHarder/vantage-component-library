@@ -1,12 +1,13 @@
 import { SvelteComponent } from "svelte";
 import '@material/web/list/list-item.js';
+import type { MdListItem } from '@material/web/list/list-item.js';
 declare const __propDef: {
     props: {
         [x: string]: any;
-        disabled?: boolean | undefined;
-        type?: import("@material/web/list/list-item.js").ListItemType | undefined;
-        href?: string | undefined;
-        target?: "" | "_blank" | "_parent" | "_self" | "_top" | undefined;
+        disabled?: boolean;
+        type?: MdListItem["type"];
+        href?: string;
+        target?: MdListItem["target"];
     };
     events: {
         [evt: string]: CustomEvent<any>;

@@ -3,9 +3,9 @@ import '@material/web/dialog/dialog.js';
 declare const __propDef: {
     props: {
         [x: string]: any;
-        quick?: boolean | undefined;
-        type?: 'alert' | undefined;
-        noFocusTrap?: boolean | undefined;
+        quick?: boolean;
+        type?: "alert" | undefined;
+        noFocusTrap?: boolean;
         open?: boolean | undefined;
     };
     events: {

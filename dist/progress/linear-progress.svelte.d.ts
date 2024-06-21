@@ -3,12 +3,12 @@ import '@material/web/progress/linear-progress.js';
 declare const __propDef: {
     props: {
         [x: string]: any;
-        buffer?: number | undefined;
-        value?: number | undefined;
-        max?: number | undefined;
-        fourColor?: boolean | undefined;
-        indeterminate?: boolean | undefined;
-        visible?: boolean | undefined;
+        buffer?: number;
+        value?: number;
+        max?: number;
+        fourColor?: boolean;
+        indeterminate?: boolean;
+        visible?: boolean;
     };
     events: {
         [evt: string]: CustomEvent<any>;

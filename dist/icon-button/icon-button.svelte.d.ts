@@ -3,18 +3,19 @@ import '@material/web/iconbutton/filled-icon-button.js';
 import '@material/web/iconbutton/filled-tonal-icon-button.js';
 import '@material/web/iconbutton/icon-button.js';
 import '@material/web/iconbutton/outlined-icon-button.js';
+import type { MdIconButton } from '@material/web/iconbutton/icon-button.js';
 import type { MdEvent } from '../internal/relay.js';
 declare const __propDef: {
     props: {
         [x: string]: any;
-        variant?: ("" | "filled" | "filled-tonal" | "outlined") | undefined;
-        disabled?: boolean | undefined;
-        href?: string | undefined;
-        target?: "" | ("_blank" | "_parent" | "_self" | "_top") | undefined;
-        toggle?: boolean | undefined;
-        selected?: boolean | undefined;
-        type?: import("@material/web/internal/controller/form-submitter.js").FormSubmitterType | undefined;
-        value?: string | undefined;
+        variant?: "" | "filled" | "outlined" | "filled-tonal";
+        disabled?: boolean;
+        href?: string;
+        target?: MdIconButton["target"];
+        toggle?: boolean;
+        selected?: boolean;
+        type?: MdIconButton["type"];
+        value?: string;
         name?: string | undefined;
     };
     events: {

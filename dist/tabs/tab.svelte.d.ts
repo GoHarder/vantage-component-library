@@ -4,9 +4,9 @@ import '@material/web/tabs/secondary-tab.js';
 declare const __propDef: {
     props: {
         [x: string]: any;
-        secondary?: boolean | undefined;
-        inlineIcon?: boolean | undefined;
-        active?: boolean | undefined;
+        secondary?: boolean;
+        inlineIcon?: boolean;
+        active?: boolean;
     };
     events: {
         [evt: string]: CustomEvent<any>;

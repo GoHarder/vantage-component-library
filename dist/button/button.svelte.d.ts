@@ -8,13 +8,13 @@ import type { MdEvent } from '../internal/relay.js';
 declare const __propDef: {
     props: {
         [x: string]: any;
-        variant?: ("text" | "elevated" | "filled" | "filled-tonal" | "outlined") | undefined;
-        disabled?: boolean | undefined;
-        href?: string | undefined;
-        target?: "" | "_blank" | "_parent" | "_self" | "_top" | undefined;
-        trailingIcon?: boolean | undefined;
-        type?: import("@material/web/internal/controller/form-submitter.js").FormSubmitterType | undefined;
-        value?: string | undefined;
+        variant?: "filled" | "outlined" | "text" | "elevated" | "filled-tonal";
+        disabled?: boolean;
+        href?: string;
+        target?: Button["target"];
+        trailingIcon?: boolean;
+        type?: Button["type"];
+        value?: string;
         name?: string | undefined;
     };
     events: {

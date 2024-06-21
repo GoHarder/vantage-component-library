@@ -3,11 +3,11 @@ import '@material/web/progress/circular-progress.js';
 declare const __propDef: {
     props: {
         [x: string]: any;
-        value?: number | undefined;
-        max?: number | undefined;
-        indeterminate?: boolean | undefined;
-        fourColor?: boolean | undefined;
-        size?: "small" | "medium" | "large" | undefined;
+        value?: number;
+        max?: number;
+        indeterminate?: boolean;
+        fourColor?: boolean;
+        size?: "small" | "medium" | "large";
     };
     events: {
         [evt: string]: CustomEvent<any>;

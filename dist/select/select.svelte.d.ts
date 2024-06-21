@@ -4,16 +4,16 @@ import '@material/web/select/outlined-select.js';
 declare const __propDef: {
     props: {
         [x: string]: any;
-        outlined?: boolean | undefined;
-        quick?: boolean | undefined;
-        required?: boolean | undefined;
-        disabled?: boolean | undefined;
-        errorText?: string | undefined;
-        label?: string | undefined;
-        supportingText?: string | undefined;
-        error?: boolean | undefined;
-        menuPositioning?: "absolute" | "fixed" | "popover" | undefined;
-        typeaheadDelay?: number | undefined;
+        outlined?: boolean;
+        quick?: boolean;
+        required?: boolean;
+        disabled?: boolean;
+        errorText?: string;
+        label?: string;
+        supportingText?: string;
+        error?: boolean;
+        menuPositioning?: Select["menuPositioning"];
+        typeaheadDelay?: number;
         value?: string | undefined;
         selectedIndex?: number | undefined;
         name?: string | undefined;

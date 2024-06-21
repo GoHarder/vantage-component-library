@@ -3,12 +3,12 @@ import '@material/web/chips/filter-chip.js';
 declare const __propDef: {
     props: {
         [x: string]: any;
-        elevated?: boolean | undefined;
-        removable?: boolean | undefined;
-        selected?: boolean | undefined;
-        disabled?: boolean | undefined;
-        alwaysFocusable?: boolean | undefined;
-        label?: string | undefined;
+        elevated?: boolean;
+        removable?: boolean;
+        selected?: boolean;
+        disabled?: boolean;
+        alwaysFocusable?: boolean;
+        label?: string;
     };
     events: {
         [evt: string]: CustomEvent<any>;

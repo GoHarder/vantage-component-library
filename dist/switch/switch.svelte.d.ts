@@ -3,12 +3,12 @@ import '@material/web/switch/switch.js';
 declare const __propDef: {
     props: {
         [x: string]: any;
-        disabled?: boolean | undefined;
-        selected?: boolean | undefined;
-        icons?: boolean | undefined;
-        showOnlySelectedIcon?: boolean | undefined;
-        required?: boolean | undefined;
-        value?: string | undefined;
+        disabled?: boolean;
+        selected?: boolean;
+        icons?: boolean;
+        showOnlySelectedIcon?: boolean;
+        required?: boolean;
+        value?: string;
     };
     events: {
         [evt: string]: CustomEvent<any>;

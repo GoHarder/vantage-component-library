@@ -3,7 +3,7 @@ import '@material/web/ripple/ripple';
 declare const __propDef: {
     props: {
         [x: string]: any;
-        disabled?: boolean | undefined;
+        disabled?: boolean;
     };
     events: {
         [evt: string]: CustomEvent<any>;

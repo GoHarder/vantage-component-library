@@ -3,7 +3,7 @@ import '@material/web/tabs/tabs.js';
 declare const __propDef: {
     props: {
         [x: string]: any;
-        autoActivate?: boolean | undefined;
+        autoActivate?: boolean;
         activeTabIndex?: number | undefined;
     };
     events: {

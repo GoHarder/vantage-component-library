@@ -1,22 +1,23 @@
 import { SvelteComponent } from "svelte";
 import '@material/web/menu/menu.js';
+import type { MdMenu } from '@material/web/menu/menu.js';
 declare const __propDef: {
     props: {
         [x: string]: any;
-        anchor?: string | undefined;
-        positioning?: "absolute" | "fixed" | "popover" | "document" | undefined;
-        quick?: boolean | undefined;
-        hasOverflow?: boolean | undefined;
-        open?: boolean | undefined;
-        xOffset?: number | undefined;
-        yOffset?: number | undefined;
-        typeaheadDelay?: number | undefined;
-        anchorCorner?: import("@material/web/menu/menu.js").Corner | undefined;
-        menuCorner?: import("@material/web/menu/menu.js").Corner | undefined;
-        stayOpenOnOutsideClick?: boolean | undefined;
-        stayOpenOnFocusout?: boolean | undefined;
-        skipRestoreFocus?: boolean | undefined;
-        defaultFocus?: import("@material/web/menu/menu.js").FocusState | undefined;
+        anchor?: string;
+        positioning?: MdMenu["positioning"];
+        quick?: boolean;
+        hasOverflow?: boolean;
+        open?: boolean;
+        xOffset?: number;
+        yOffset?: number;
+        typeaheadDelay?: number;
+        anchorCorner?: MdMenu["anchorCorner"];
+        menuCorner?: MdMenu["menuCorner"];
+        stayOpenOnOutsideClick?: boolean;
+        stayOpenOnFocusout?: boolean;
+        skipRestoreFocus?: boolean;
+        defaultFocus?: MdMenu["defaultFocus"];
     };
     events: {
         [evt: string]: CustomEvent<any>;

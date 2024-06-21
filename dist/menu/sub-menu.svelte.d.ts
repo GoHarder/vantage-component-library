@@ -1,12 +1,13 @@
 import { SvelteComponent } from "svelte";
 import '@material/web/menu/sub-menu.js';
+import type { MdSubMenu } from '@material/web/menu/sub-menu.js';
 declare const __propDef: {
     props: {
         [x: string]: any;
-        anchorCorner?: import("@material/web/menu/menu.js").Corner | undefined;
-        menuCorner?: import("@material/web/menu/menu.js").Corner | undefined;
-        hoverOpenDelay?: number | undefined;
-        hoverCloseDelay?: number | undefined;
+        anchorCorner?: MdSubMenu["anchorCorner"];
+        menuCorner?: MdSubMenu["menuCorner"];
+        hoverOpenDelay?: number;
+        hoverCloseDelay?: number;
     };
     events: {
         [evt: string]: CustomEvent<any>;

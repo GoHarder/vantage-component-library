@@ -1,15 +1,16 @@
 import { SvelteComponent } from "svelte";
 import '@material/web/fab/branded-fab.js';
 import '@material/web/fab/fab.js';
+import type { MdFab } from '@material/web/fab/fab.js';
 import type { MdEvent } from '../internal/relay.js';
 declare const __propDef: {
     props: {
         [x: string]: any;
-        branded?: boolean | undefined;
-        variant?: ("surface" | "primary" | "secondary" | "tertiary") | undefined;
-        size?: import("@material/web/fab/branded-fab.js").FabSize | undefined;
-        label?: string | undefined;
-        lowered?: boolean | undefined;
+        branded?: boolean;
+        variant?: "surface" | "primary" | "secondary" | "tertiary";
+        size?: MdFab["size"];
+        label?: string;
+        lowered?: boolean;
     };
     events: {
         click: MdEvent<"click", "md-branded-fab" | "md-fab">;

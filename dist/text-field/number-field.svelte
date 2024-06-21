@@ -16,6 +16,7 @@ export let errorText = '';
 export let label = '';
 export let required = false;
 export let value = undefined;
+export let noAsterisk = false;
 export let prefixText = '';
 export let suffixText = '';
 export let supportingText = '';
@@ -28,6 +29,7 @@ export let step = '';
 export let type = 'number';
 export let autocomplete = 'on';
 export let name = undefined;
+export let noSpinner = false;
 function pass(num) {
     return num;
 }
@@ -59,11 +61,12 @@ const types = {
 };
 const { iUnit, toMetric, toComp, toValue } = types[type] || types.number;
 if (!context) {
-    style = getContext('style')?.textInput;
+    style = getContext('style')?.numberInput;
     context = true;
 }
-if (style?.variant) {
+if (style !== undefined) {
     outlined = style.variant === 'outlined';
+    noSpinner = style.noSpinner;
 }
 $: actionProps = { disabled, error, errorText, label, value, supportingText };
 $: props = Relay.props($$props, ['metric', 'disabled', 'error', 'errorText', 'label', 'value', 'supportingText']);
@@ -84,6 +87,8 @@ relay.init = (node) => {
     node.step = step;
     node.type = 'number';
     node.autocomplete = autocomplete;
+    node.noAsterisk = noAsterisk;
+    node.noSpinner = noSpinner;
     if (name)
         node.name = name;
 };

@@ -3,9 +3,9 @@ import '@material/web/radio/radio.js';
 declare const __propDef: {
     props: {
         [x: string]: any;
-        disabled?: boolean | undefined;
-        value?: string | undefined;
-        checked?: boolean | undefined;
+        disabled?: boolean;
+        value?: string;
+        checked?: boolean;
         name?: undefined;
     };
     events: {

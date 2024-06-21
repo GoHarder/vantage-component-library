@@ -3,9 +3,9 @@ import '@material/web/select/select-option.js';
 declare const __propDef: {
     props: {
         [x: string]: any;
-        disabled?: boolean | undefined;
-        selected?: boolean | undefined;
-        value?: string | undefined;
+        disabled?: boolean;
+        selected?: boolean;
+        value?: string;
     };
     events: {
         [evt: string]: CustomEvent<any>;
