@@ -1,12 +1,17 @@
 <script lang="ts" context="module">
   let context = false;
-  let settings: Lib.StyleContext['switch'] | undefined = undefined;
+  let settings: SvelteContext['style']['switch'] = undefined;
 </script>
 
 <script lang="ts">
   import '@material/web/switch/switch.js';
   import { getContext } from 'svelte';
   import Relay from '../internal/relay.js';
+
+  // MARK: Types
+  // ------------------------------------------------
+
+  import type { SvelteContext } from '../main.js';
 
   // MARK: Properties
   // ------------------------------------------------
@@ -50,13 +55,14 @@
   // ------------------------------------------------
 
   if (!context) {
-    settings = getContext<Lib.StyleContext>('style')?.switch;
+    // settings = getContext<Lib.StyleContext>('style')?.switch;
+    settings = getContext<SvelteContext['style']>('style')?.switch;
     context = true;
   }
 
   if (settings !== undefined) {
-    icons = settings.icons;
-    showOnlySelectedIcon = settings.showOnlySelectedIcon;
+    icons = settings?.icons ?? icons;
+    showOnlySelectedIcon = settings?.showOnlySelectedIcon ?? showOnlySelectedIcon;
   }
 
   // MARK: Reactive Rules

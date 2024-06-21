@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
   let context = false;
-  let style: SvelteContext['style']['numberInput'] | undefined = undefined;
+  let style: SvelteContext['style']['numberInput'] = undefined;
 </script>
 
 <script lang="ts">
@@ -175,9 +175,10 @@
     context = true;
   }
 
-  if (style !== undefined) {
-    outlined = style.variant === 'outlined';
-    noSpinner = style.noSpinner;
+  if (context) {
+    if (style?.variant !== undefined) outlined = style.variant === 'outlined';
+    noAsterisk = style?.noAsterisk ?? noAsterisk;
+    noSpinner = style?.noSpinner ?? noSpinner;
   }
 
   // MARK: Reactive Rules

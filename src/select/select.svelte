@@ -1,7 +1,7 @@
 <script lang="ts" context="module">
   let context = false;
   let reducedMotion: boolean | undefined = undefined;
-  let style: Lib.StyleContext['select'] | undefined = undefined;
+  let style: SvelteContext['style']['select'] = undefined;
 </script>
 
 <script lang="ts">
@@ -14,6 +14,7 @@
   // ------------------------------------------------
 
   import type { Select } from '@material/web/select/internal/select.js';
+  import type { SvelteContext } from '../main.js';
   type MdComp = 'md-outlined-select' | 'md-filled-select';
 
   // MARK: Properties
@@ -75,16 +76,14 @@
   // ------------------------------------------------
 
   if (!context) {
-    style = getContext<Lib.StyleContext>('style')?.select;
+    style = getContext<SvelteContext['style']>('style')?.select;
     reducedMotion = getContext('reducedMotion');
     context = true;
   }
 
   if (reducedMotion) quick = true;
 
-  if (style !== undefined) {
-    outlined = style.variant === 'outlined';
-  }
+  if (style?.variant !== undefined) outlined = style.variant === 'outlined';
 
   // MARK: Reactive Rules
   // ------------------------------------------------

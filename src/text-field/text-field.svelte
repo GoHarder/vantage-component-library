@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
   let context = false;
-  let style: SvelteContext['style']['textInput'] | undefined = undefined;
+  let style: SvelteContext['style']['textInput'] = undefined;
 </script>
 
 <script lang="ts">
@@ -12,8 +12,8 @@
   // MARK: Types
   // ------------------------------------------------
 
-  import type { TextField } from '@material/web/textfield/internal/text-field.js';
   import type { SvelteContext } from '../main.js';
+  import type { TextField } from '@material/web/textfield/internal/text-field.js';
 
   type MdComp = 'md-outlined-text-field' | 'md-filled-text-field';
 
@@ -161,12 +161,13 @@
   // ------------------------------------------------
 
   if (!context) {
-    style = getContext<SvelteContext['style']>('context')?.textInput;
+    style = getContext<SvelteContext['style']>('style').textInput;
     context = true;
   }
 
-  if (style !== undefined) {
-    outlined = style.variant === 'outlined';
+  if (context) {
+    if (style?.variant !== undefined) outlined = style.variant === 'outlined';
+    noAsterisk = style?.noAsterisk ?? noAsterisk;
   }
 
   // MARK: Reactive Rules
