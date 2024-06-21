@@ -7,5 +7,9 @@ export type SvelteContext = {
       showOnlySelectedIcon: boolean;
     };
     textInput: { variant: 'filled' | 'outlined' };
+    numberInput: {
+      variant: 'filled' | 'outlined';
+      noSpinner: boolean;
+    };
   };
 };
