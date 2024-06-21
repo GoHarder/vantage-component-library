@@ -7,7 +7,7 @@
   // Components
   // Stores
   // Properties
-  export let expand = true;
+  export let expand = false;
   export let debug = false;
 
   // Methods
@@ -19,19 +19,31 @@
     address: undefined,
   };
 
+  const icons = {
+    val1: undefined,
+    val2: undefined,
+    val3: undefined,
+  };
+
   // Variables
-  let field;
-  let value = undefined;
+
+  let selected = false;
 
   // Contexts
   // Subscriptions
   // Reactive Rules
   $: if (debug) {
-    console.table(hero);
-    // console.log('svelte', value);
+    console.table(icons);
   }
 
+  $: fieldType = selected ? 'text' : 'password';
+
   // Events
+
+  function onToggle() {
+    selected = !selected;
+  }
+
   // Lifecycle
 </script>
 
@@ -64,13 +76,18 @@
     <TextField label="Vertical resize" type="textarea" style="resize: vertical;" />
 
     <h3>Icons</h3>
-    <TextField placeholder="Search for messages" type="search" outlined>
+    <TextField bind:value={icons.val1} placeholder="Search for messages" type="search" outlined>
       <Icon slot="leading-icon">search</Icon>
     </TextField>
-    <TextField label="Password" type="password" outlined>
-      <Icon slot="trailing-icon">visibility</Icon>
+
+    <TextField bind:value={icons.val2} label="Password" type={fieldType} required autocomplete="current-password">
+      <IconButton on:click={onToggle} slot="trailing-icon" type="button" toggle {selected}>
+        <Icon>visibility</Icon>
+        <Icon slot="selected">visibility_off</Icon>
+      </IconButton>
     </TextField>
-    <TextField label="Username" outlined error errorText="Username not available">
+
+    <TextField bind:value={icons.val3} label="Username" outlined error errorText="Username not available">
       <Icon slot="trailing-icon">error</Icon>
     </TextField>
 
