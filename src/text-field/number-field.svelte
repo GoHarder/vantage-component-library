@@ -1,6 +1,6 @@
 <script lang="ts" context="module">
   let context = false;
-  let style: Lib.StyleContext['textInput'] | undefined = undefined;
+  let style: SvelteContext['style']['numberInput'] | undefined = undefined;
 </script>
 
 <script lang="ts">
@@ -13,6 +13,7 @@
   // MARK: Types
   // ------------------------------------------------
 
+  import type { SvelteContext } from '../main.js';
   type MdComp = 'md-outlined-number-field' | 'md-filled-number-field';
 
   // MARK: Properties
@@ -43,6 +44,9 @@
 
   /** The current value of the text field. It is always a string. */
   export let value: number | undefined = undefined;
+
+  /** Disables the asterisk on the floating label, when the text field is required. */
+  export let noAsterisk = false;
 
   /** An optional prefix to display before the input value. */
   export let prefixText = '';
@@ -164,7 +168,7 @@
   // ------------------------------------------------
 
   if (!context) {
-    style = getContext<Lib.StyleContext>('style')?.textInput;
+    style = getContext<SvelteContext['style']>('style')?.numberInput;
     context = true;
   }
 
@@ -204,6 +208,8 @@
     node.step = step;
     node.type = 'number';
     node.autocomplete = autocomplete;
+    node.noAsterisk = noAsterisk;
+    node.noSpinner = noSpinner;
     if (name) node.name = name;
   };
 

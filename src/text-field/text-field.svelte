@@ -44,15 +44,16 @@
   /** The current value of the text field. It is always a string. */
   export let value = '';
 
+  /** Disables the asterisk on the floating label, when the text field is required. */
+  export let noAsterisk = false;
+
   /** An optional prefix to display before the input value. */
   export let prefixText = '';
 
   /** An optional suffix to display after the input value. */
   export let suffixText = '';
 
-  /**
-   * Conveys additional information below the text field, such as how it should be used.
-   */
+  /** Conveys additional information below the text field, such as how it should be used. */
   export let supportingText = '';
 
   /** The number of rows to display for a `type="textarea"` text field. */
@@ -164,7 +165,7 @@
     context = true;
   }
 
-  if (style?.variant) {
+  if (style !== undefined) {
     outlined = style.variant === 'outlined';
   }
 
@@ -207,6 +208,7 @@
     node.step = step;
     node.type = type;
     node.autocomplete = autocomplete;
+    node.noAsterisk = noAsterisk;
     if (name) node.name = name;
   };
 
