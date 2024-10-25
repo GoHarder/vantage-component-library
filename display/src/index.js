@@ -1,5 +1,5 @@
 // @ts-check
-
+import { mount } from 'svelte';
 import './scss/index.scss';
 import App from './svelte/app.svelte';
 
@@ -14,6 +14,4 @@ const context = new Map([
   ['style', style],
 ]);
 
-const target = document.querySelector('body');
-
-if (target) new App({ target, context });
+mount(App, { target: document.body, context });

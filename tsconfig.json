@@ -58,14 +58,14 @@
      * ------------------------------------------------------------------- */
 
     /* Specify what module code is generated. */
-    "module": "ESNext",
+    "module": "ES2020",
 
     /* Specify the root folder within your source files. */
     // "rootDir": "/",
 
     /* Specify how TypeScript looks up a file from a given module
      * specifier. */
-    "moduleResolution": "Bundler",
+    "moduleResolution": "Node",
 
     /* Specify the base directory to resolve non-relative module names. */
     // "baseUrl": "./",
@@ -82,7 +82,7 @@
 
     /* Specify type package names to be included without being referenced
      * in a source file. */
-    // "types": [],
+    "types": ["lit"],
 
     /* Allow accessing UMD globals from modules. */
     // "allowUmdGlobalAccess": true,
@@ -167,7 +167,7 @@
 
     /* Allow importing helper functions from tslib once per project, instead
      * of including them per-file. */
-    // "importHelpers": true,
+    "importHelpers": true,
 
     /* Specify emit/checking behavior for imports that are only used for
      * types. */

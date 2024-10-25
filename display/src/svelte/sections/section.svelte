@@ -6,8 +6,13 @@
 
   // Stores
   // Properties
-  export let expand = false;
-  export let debug = false;
+  let { 
+    header, 
+    supportingText, 
+    children, 
+    expand = $bindable(false), 
+    debug = $bindable(false)
+  } = $props();
 
   // Methods
   // Constants
@@ -16,41 +21,35 @@
   // Subscriptions
   // Reactive Rules
   // Events
-
-  function toggleExpand() {
-    expand = !expand;
-  }
-
-  function toggleDebug() {
-    debug = !debug;
-  }
-
   // Lifecycle
 </script>
+
+{#snippet slotIcon(iconName)}
+<Icon slot="selected">{iconName}</Icon>
+{/snippet}
 
 <section class="component">
   <Elevation />
   <header>
     <div class="row-1">
-      <slot name="header" />
-
+      {@render header?.()}
       <div>
-        <IconButton on:click={toggleDebug} toggle selected={debug}>
+        <IconButton bind:selected={debug} toggle>
           <Icon>bug_report</Icon>
+        </IconButton> 
+
+        <IconButton bind:selected={expand} toggle>
+          {@render slotIcon('collapse_all')}
+          <Icon>expand_all</Icon>
         </IconButton>
 
-        <IconButton on:click={toggleExpand} toggle selected={expand}>
-          <Icon>expand_all</Icon>
-          <Icon slot="selected">collapse_all</Icon>
-        </IconButton>
       </div>
     </div>
-
     {#if expand}
-      <slot name="supporting-text" />
+    {@render supportingText?.()}      
     {/if}
   </header>
   <div class="container">
-    <slot />
-  </div>
-</section>
+    {@render children?.()} 
+  </div> 
+</section> 

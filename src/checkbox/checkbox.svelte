@@ -1,72 +1,61 @@
 <script lang="ts">
   import '@material/web/checkbox/checkbox.js';
-  import Relay from '../internal/relay.js';
+  import { onDestroy, onMount } from 'svelte';
+
+  // MARK: Types
+  // ------------------------------------------------
+  import type { MdCheckbox } from '@material/web/checkbox/checkbox';
+
+  type Props = {
+    /** Whether or not the checkbox is selected. */
+    checked: boolean;
+    /** Whether or not the checkbox is disabled. */
+    disabled: boolean;
+    /**
+     * Whether or not the checkbox is indeterminate.
+     *
+     * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#indeterminate_state_checkboxes)
+     */
+    indeterminate: boolean;
+    /**
+     * When true, require the checkbox to be selected when participating in form submission.
+     *
+     * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#validation)
+     */
+    required: boolean;
+    /**
+     * The value of the checkbox that is submitted with a form when selected.
+     *
+     * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#value)
+     */
+    value: string;
+    name?: string;
+  };
 
   // MARK: Properties
   // ------------------------------------------------
+  let { checked = $bindable(false), disabled = false, indeterminate = false, required = false, value = 'on', name = undefined }: Props = $props();
 
-  /** Whether or not the checkbox is selected. */
-  export let checked = false;
-
-  /** Whether or not the checkbox is disabled. */
-  export let disabled = false;
-
-  /**
-   * Whether or not the checkbox is indeterminate.
-   *
-   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#indeterminate_state_checkboxes)
-   */
-  export let indeterminate = false;
-
-  /**
-   * When true, require the checkbox to be selected when participating in form submission.
-   *
-   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#validation)
-   */
-  export let required = false;
-
-  /**
-   * The value of the checkbox that is submitted with a form when selected.
-   *
-   * [MDN Reference](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/checkbox#value)
-   */
-  export let value = 'on';
-
-  export let name: string | undefined = undefined;
-
-  // MARK: Constants
+  // MARK: Variables
   // ------------------------------------------------
-
-  const relay = new Relay<'md-checkbox', typeof actionProps>();
-
-  const props = Relay.props($$props, ['checked', 'disabled', 'indeterminate', 'required', 'value', 'name']);
-
-  // MARK: Reactive Rules
-  // ------------------------------------------------
-
-  $: actionProps = { checked, disabled };
+  let component: MdCheckbox | undefined = $state();
 
   // MARK: Events
   // ------------------------------------------------
-
-  relay.on('change', (event) => {
-    checked = event.target.checked;
+  function onChange() {
+    checked = !checked;
     indeterminate = false;
-  });
+  }
 
   // MARK: Lifecycle
   // ------------------------------------------------
-  relay.init = (node) => {
-    node.indeterminate = indeterminate;
-    node.required = required;
-    node.value = value;
-    if (name) node.name = name;
-  };
+  onMount(() => {
+    if (component) component.addEventListener('click', onChange);
+  });
 
-  relay.update = (node, props) => {
-    node.checked = props.checked;
-    node.disabled = props.disabled;
-  };
+  onDestroy(() => {
+    if (component) component.removeEventListener('click', onChange);
+  });
 </script>
 
-<md-checkbox use:relay.action={actionProps} {...props} />
+<md-checkbox bind:this={component} {checked} {disabled} {indeterminate} {required} {value} {name}></md-checkbox>

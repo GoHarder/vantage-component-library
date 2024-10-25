@@ -6,12 +6,13 @@
 
   // Stores
   // Properties
-  export let expand = false;
-  export let debug = false;
-
   // Methods
   // Constants
   // Variables
+  let debug = $state(false);
+  let expand = $state(true);
+  let test = $state(false);
+
   // Contexts
   // Subscriptions
   // Reactive Rules
@@ -19,17 +20,21 @@
   // Lifecycle
 </script>
 
-<Section bind:expand bind:debug>
-  <h2 slot="header">Checkboxes</h2>
-  <div slot="supporting-text">
-    <p>Checkboxes allow users to select one or more items from a set and can be used to turn an option on or off.</p>
-    <p>They're a kind of selection control that helps users make a choice from a set of options.</p>
-  </div>
+{#snippet header()}
+<h2>Checkboxes</h2>
+{/snippet}
 
+{#snippet supportingText()}
+<div>
+  <p>Checkboxes allow users to select one or more items from a set and can be used to turn an option on or off.</p>
+  <p>They're a kind of selection control that helps users make a choice from a set of options.</p>
+</div>
+{/snippet}
+
+<Section bind:debug={debug} bind:expand={expand} {header} {supportingText}>  
   {#if expand}
     <div class="hero">
       <p>Allow access</p>
-
       <div class="row">
         <label for="microphone-checkbox">Microphone Access</label>
         <Checkbox checked id="microphone-checkbox" />
@@ -49,7 +54,7 @@
 
     <h3>Usage</h3>
     <div class="usage">
-      <Checkbox />
+      <Checkbox bind:checked={test} />
       <Checkbox checked />
       <Checkbox indeterminate />
     </div>

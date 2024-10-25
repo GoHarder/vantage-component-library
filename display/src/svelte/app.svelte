@@ -2,24 +2,24 @@
   // Components
   import ButtonCard from './sections/button-section.svelte';
   import CheckboxCard from './sections/checkbox-section.svelte';
-  import ChipCard from './sections/chip-section.svelte';
-  import DialogCard from './sections/dialog-section.svelte';
-  import DividerCard from './sections/divider-section.svelte';
-  import ElevationCard from './sections/elevation-section.svelte';
-  import FabCard from './sections/fab-section.svelte';
-  import FocusCard from './sections/focus-section.svelte';
-  import IconCard from './sections/icon-section.svelte';
-  import IconButtonCard from './sections/icon-button-section.svelte';
-  import ListCard from './sections/list-section.svelte';
-  import MenuCard from './sections/menu-section.svelte';
-  import ProgressCard from './sections/progress-section.svelte';
-  import RadioCard from './sections/radio-section.svelte';
-  import RippleCard from './sections/ripple-section.svelte';
-  import SelectCard from './sections/select-section.svelte';
-  import SliderCard from './sections/slider-section.svelte';
-  import SwitchCard from './sections/switch-section.svelte';
-  import TabsCard from './sections/tabs-section.svelte';
-  import TextFieldCard from './sections/text-field-section.svelte';
+  // import ChipCard from './sections/chip-section.svelte';
+  // import DialogCard from './sections/dialog-section.svelte';
+  // import DividerCard from './sections/divider-section.svelte';
+  // import ElevationCard from './sections/elevation-section.svelte';
+  // import FabCard from './sections/fab-section.svelte';
+  // import FocusCard from './sections/focus-section.svelte';
+  // import IconCard from './sections/icon-section.svelte';
+  // import IconButtonCard from './sections/icon-button-section.svelte';
+  // import ListCard from './sections/list-section.svelte';
+  // import MenuCard from './sections/menu-section.svelte';
+  // import ProgressCard from './sections/progress-section.svelte';
+  // import RadioCard from './sections/radio-section.svelte';
+  // import RippleCard from './sections/ripple-section.svelte';
+  // import SelectCard from './sections/select-section.svelte';
+  // import SliderCard from './sections/slider-section.svelte';
+  // import SwitchCard from './sections/switch-section.svelte';
+  // import TabsCard from './sections/tabs-section.svelte';
+  // import TextFieldCard from './sections/text-field-section.svelte';
 
   // Stores
   // Properties
@@ -37,9 +37,9 @@
 <h1>Component Library</h1>
 
 <main>
-  <ButtonCard expand={false} />
-  <CheckboxCard expand={false} />
-  <ChipCard expand={false} />
+  <ButtonCard />
+  <CheckboxCard />
+  <!-- <ChipCard expand={false} />
   <DialogCard expand={false} />
   <DividerCard expand={false} />
   <ElevationCard expand={false} />
@@ -56,5 +56,5 @@
   <SliderCard expand={false} />
   <SwitchCard expand={false} />
   <TabsCard expand={false} />
-  <TextFieldCard expand={false} />
+  <TextFieldCard expand={false} /> -->
 </main>

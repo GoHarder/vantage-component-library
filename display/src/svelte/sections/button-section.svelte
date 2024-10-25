@@ -6,12 +6,12 @@
 
   // Stores
   // Properties
-  export let expand = false;
-  export let debug = false;
-
   // Methods
   // Constants
   // Variables
+  let debug = $state(false)
+  let expand = $state(false)
+
   // Contexts
   // Subscriptions
   // Reactive Rules
@@ -19,10 +19,19 @@
   // Lifecycle
 </script>
 
-<Section bind:expand bind:debug>
-  <h2 slot="header">Buttons</h2>
-  <p slot="supporting-text">Buttons help people take actions, such as sending an email, sharing a document, or liking a comment.</p>
+{#snippet header()}
+<h2>Buttons</h2>
+{/snippet}
 
+{#snippet supportingText()}
+<p>Buttons help people take actions, such as sending an email, sharing a document, or liking a comment.</p>
+{/snippet}
+
+{#snippet slotIcon(iconName)}
+<Icon slot="icon">{iconName}</Icon>
+{/snippet}
+
+<Section bind:debug={debug} bind:expand={expand} {header} {supportingText}>
   {#if expand}
     <div class="hero">
       <Button variant="filled">Make Payment</Button>
@@ -32,7 +41,7 @@
 
   <div class="button-grid">
     <Button>
-      <Icon slot="icon">add</Icon>
+      {@render slotIcon('add')} 
       Elevated
     </Button>
     <Button variant="filled">Filled</Button>
@@ -48,11 +57,11 @@
 
     <h3>Icon</h3>
     <Button variant="filled-tonal">
-      <Icon slot="icon">send</Icon>
+      {@render slotIcon('send')} 
       Send
     </Button>
     <Button variant="filled" trailingIcon>
-      <Icon slot="icon">open_in_new</Icon>
+      {@render slotIcon('open_in_new')}      
       Open
     </Button>
 

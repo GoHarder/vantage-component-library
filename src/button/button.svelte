@@ -4,113 +4,101 @@
   import '@material/web/button/filled-tonal-button.js';
   import '@material/web/button/outlined-button.js';
   import '@material/web/button/text-button.js';
-  import Relay from '../internal/relay.js';
+  import { onDestroy, onMount } from "svelte";
 
   // MARK: Types
   // ------------------------------------------------
-
-  import type { Button } from '@material/web/button/internal/button.js';
-  import type { MdEvent } from '../internal/relay.js';
+  import type { MdElevatedButton } from "@material/web/button/elevated-button";
+  import type { MdFilledButton } from "@material/web/button/filled-button";
+  import type { MdFilledTonalButton } from "@material/web/button/filled-tonal-button";
+  import type { MdOutlinedButton } from "@material/web/button/outlined-button";
+  import type { MdTextButton } from "@material/web/button/text-button";
 
   type Variant = 'elevated' | 'filled' | 'filled-tonal' | 'outlined' | 'text';
-  type MdComp = `md-${Variant}-button`;
+  type MdComp = MdElevatedButton | MdFilledButton | MdFilledTonalButton | MdOutlinedButton | MdTextButton | undefined;
 
-  interface $$Events {
-    click: MdEvent<'click', MdComp>;
-  }
+  type Props = {
+    /** The default slot content. */
+    children: Function;
+    /** The selected icon slot. */
+    slotIcon?: Function;
+    /** The on click event handler. */
+    onClick?: (event: MouseEvent) => void;    
+    /** The variant of button to render. */
+    variant: Variant;
+    /** Disables the icon button and makes it non-interactive. */
+    disabled?: boolean;
+    /** Sets the underlying `HTMLAnchorElement`'s `href` resource attribute. */
+    href: string;
+    /** Sets the underlying `HTMLAnchorElement`'s `target` attribute. */
+    target: MdElevatedButton['target'];
+    /**
+     * Whether to render the icon at the inline end of the label rather than the inline start.
+     *
+     * NOTE: Link buttons cannot have trailing icons.
+     */
+    trailingIcon: boolean;
+    /** The default behavior of the button. May be "button", "reset", or "submit" */
+    type: MdElevatedButton['type'];
+    /** The value added to a form with the button's name when the button submits a form. */
+    value: string;
+    name?: string;
+  };
 
   // MARK: Properties
   // ------------------------------------------------
+  let {
+    children,
+    slotIcon,
+    onClick,
+    variant,
+    disabled = false,
+    href = '',
+    target = '',
+    trailingIcon = false,
+    type = 'submit',
+    value = '',
+    name = undefined,
+  }: Props = $props();
 
-  export let variant: Variant = 'elevated';
-
-  /** Whether or not the button is disabled. */
-  export let disabled = false;
-
-  /** The URL that the link button points to. */
-  export let href = '';
-
-  /**
-   * Where to display the linked `href` URL for a link button.
-   * Common options include `_blank` to open in a new tab.
-   */
-  export let target: Button['target'] = '';
-
-  /**
-   * Whether to render the icon at the inline end of the label rather than the inline start.
-   *
-   * NOTE: Link buttons cannot have trailing icons.
-   */
-  export let trailingIcon = false;
-
-  export let type: Button['type'] = 'submit';
-
-  export let value = '';
-
-  export let name: string | undefined = undefined;
-
-  // MARK: Constants
+  // MARK: Variables
   // ------------------------------------------------
-
-  const relay = new Relay<MdComp, typeof actionProps>();
-
-  // MARK: Reactive Rules
-  // ------------------------------------------------
-
-  $: actionProps = { disabled };
-
-  $: props = Relay.props($$props, ['variant', 'disabled', 'href', 'target', 'trailingIcon', 'type', 'value', 'name']);
+  let component: MdComp = $state()
 
   // MARK: Lifecycle
   // ------------------------------------------------
+  onMount(() => {
+    if (component && onClick) component.addEventListener('click', onClick);    
+  })
 
-  relay.init = (node) => {
-    node.href = href;
-    node.target = target;
-    node.trailingIcon = trailingIcon;
-    node.type = type;
-    node.value = value;
-    if (name) node.name = name;
-  };
-
-  relay.update = (node, props) => {
-    node.disabled = props.disabled;
-  };
+  onDestroy(() => {
+    if (component && onClick) component.removeEventListener('click', onClick);
+  })
 </script>
 
-{#if variant === 'elevated'}
-  <md-elevated-button use:relay.action={actionProps} {...props}>
-    <slot />
-    {#if $$slots.icon}
-      <slot name="icon" />
-    {/if}
-  </md-elevated-button>
-{:else if variant === 'filled'}
-  <md-filled-button use:relay.action={actionProps} {...props}>
-    <slot />
-    {#if $$slots.icon}
-      <slot name="icon" />
-    {/if}
+{#if variant === 'filled'}
+  <md-filled-button bind:this={component} {disabled} {href} {target} {trailingIcon} {type} {value} {name}>
+    {@render children()}
+    {@render slotIcon?.()}
   </md-filled-button>
 {:else if variant === 'filled-tonal'}
-  <md-filled-tonal-button use:relay.action={actionProps} {...props}>
-    <slot />
-    {#if $$slots.icon}
-      <slot name="icon" />
-    {/if}
+  <md-filled-tonal-button bind:this={component} {disabled} {href} {target} {trailingIcon} {type} {value} {name}>
+    {@render children()}
+    {@render slotIcon?.()}
   </md-filled-tonal-button>
 {:else if variant === 'outlined'}
-  <md-outlined-button use:relay.action={actionProps} {...props}>
-    <slot />
-    {#if $$slots.icon}
-      <slot name="icon" />
-    {/if}
+  <md-outlined-button bind:this={component} {disabled} {href} {target} {trailingIcon} {type} {value} {name}>
+    {@render children()}
+    {@render slotIcon?.()}
   </md-outlined-button>
 {:else if variant === 'text'}
-  <md-text-button use:relay.action={actionProps} {...props}>
-    <slot />
-    {#if $$slots.icon}
-      <slot name="icon" />
-    {/if}
+  <md-text-button bind:this={component} {disabled} {href} {target} {trailingIcon} {type} {value} {name}>
+    {@render children()}
+    {@render slotIcon?.()}
   </md-text-button>
+{:else}
+  <md-elevated-button bind:this={component} {disabled} {href} {target} {trailingIcon} {type} {value} {name}>  
+    {@render children()}
+    {@render slotIcon?.()}
+  </md-elevated-button>
 {/if}
